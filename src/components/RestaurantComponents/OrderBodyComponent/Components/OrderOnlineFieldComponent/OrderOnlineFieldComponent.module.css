@@ -1,0 +1,149 @@
+.outerDiv{
+    width: 100%;
+    height: 100%;
+}
+
+.innerDiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.leftBox{
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    padding: 1rem 0;
+}
+
+.navTab{
+    text-transform: capitalize;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400;
+    color: purple;
+}
+
+.activeNavTab{
+    font-weight: 500;
+    color: purple;
+    border-right: var(--brd-redish-color-2p);
+    background: var(--bg2-li);
+}
+
+.rightBox{
+    width: 100%;
+    height: auto;
+    overflow-y: scroll;
+}
+
+.rightBox::-webkit-scrollbar{
+    display: none;
+}
+
+.hSec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ttl{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: purple;
+}
+
+.tabBox{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.hr{
+    margin: 0 1rem;
+    border-right: 1px solid purple;
+}
+
+.tagLine{
+    display: flex;
+    align-items: center;
+}
+
+.clockIcon{
+    width: 15px;
+    height: 15px;
+}
+
+.tabTxt{
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: purple;
+    margin: 0 0.5rem;
+}
+
+.offersTrack{
+    width: 100%;
+    margin: 0.5rem 0;
+    overflow-x: scroll;
+    display: flex;
+}
+
+.offersTrack::-webkit-scrollbar{
+    display: none;
+}
+
+.formBox{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.itemsBox{
+    width: 100%;
+}
+
+.sec{
+    margin: 1rem 0;
+}
+
+.secTtl{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: purple;
+    text-transform: capitalize;
+}
+
+.hr2{
+    border: none;
+    border-bottom: var(--brd4);
+}
+
+@media all and (min-width: 780px){    
+    .innerDiv{
+        flex-direction: row;
+    }
+    
+    .leftBox{
+        width: 25%;
+        height: 100vh;
+        margin-right: 10px;
+    }
+
+    .rightBox{
+        width: 75%;
+        height: 100vh;
+    }
+    
+    .hSec{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}

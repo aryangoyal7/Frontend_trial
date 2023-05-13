@@ -1,0 +1,43 @@
+.card {
+    min-width: 250px;
+    max-width: 280px;
+    min-height: 300px;
+    max-height: 330px;
+    position: relative;
+    margin: 5px;
+    border-radius: 10px; /* increased corner radius */
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* added a subtle shadow */
+  }
+
+
+
+.cardImg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* increased corner radius */
+    object-fit: cover;
+    filter: brightness(60%);
+    transition: filter 0.3s ease-out; /* added a transition for hover effect */
+  }
+  .card:hover .cardImg {
+    filter: brightness(100%); /* added hover effect to increase brightness */
+  }
+
+.details {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: var(--color-white);
+}
+
+.title {
+    font-size: 1.2rem;
+}
+
+.rightArrow {
+    width: 10px;
+    height: 10px;
+    filter: invert(1);
+}

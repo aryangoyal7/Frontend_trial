@@ -1,21 +1,8 @@
 import {useEffect, useState} from 'react'
 import {Formik, Form} from 'formik'
-
 import css from './OrderOnlineFieldComponent.module.css'
-
-import CheckBoxUtil from '../../../../../utils/FormUtils/CheckBoxUtil/CheckBoxUtil'
-
-
-import DownloadAppUtil from '../../../../../utils/RestaurantUtils/DownloadAppUtil/DownloadAppUtil'
-import SmallSearchBarUtil from '../../../../../utils/RestaurantUtils/SmallSearchBarUtil/SmallSearchBarUtil'
-import OfferTrackUtil from '../../../../../utils/RestaurantUtils/OfferTrackUtil/OfferTrackUtil'
 import FoodItemProduct from '../../../../../utils/RestaurantUtils/FoodItemProduct/FoodItemProduct'
-
 import compassIcon from '/icons/compass.png'
-import clockIcon from '/icons/clock.png'
-import vegIcon from '/icons/veg.png'
-
-import hariyalikebab from '/images/hariyalikebab.jpg'
 
 const OrderOnlineFieldComponent = () => {
 
@@ -25,11 +12,6 @@ const OrderOnlineFieldComponent = () => {
   const [foodType, setFoodType] = useState({
     
   });
-
-  const offerTrackData = [
-    {txt1: "CashBack offers", txt2: "on this card"},
-    {txt1: "Credit card offers", txt2: "on this card"}
-  ]
 
   const initialValues = {veg: false, egg: false}
 
@@ -115,11 +97,7 @@ const OrderOnlineFieldComponent = () => {
             
           </div>
         </div>
-        <div className={css.offersTrack}>
-          {offerTrackData?.map((val, id) => {
-            return <OfferTrackUtil key={id} txt1={val.txt1} txt2={val.txt2} />
-          })}
-        </div>
+       
         <div className={css.formBox}>
           <Formik initialValues={initialValues}>
               <Form className={css.form}>

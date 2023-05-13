@@ -1,22 +1,7 @@
 import {useEffect, useState} from 'react'
 import {Formik, Form} from 'formik'
-
 import css from './OrderOnlineFieldComponent.module.css'
-
-import CheckBoxUtil from '../../../../../utils/FormUtils/CheckBoxUtil/CheckBoxUtil'
-
-
-import DownloadAppUtil from '../../../../../utils/RestaurantUtils/DownloadAppUtil/DownloadAppUtil'
-import SmallSearchBarUtil from '../../../../../utils/RestaurantUtils/SmallSearchBarUtil/SmallSearchBarUtil'
-import OfferTrackUtil from '../../../../../utils/RestaurantUtils/OfferTrackUtil/OfferTrackUtil'
 import FoodItemProduct from '../../../../../utils/RestaurantUtils/FoodItemProduct/FoodItemProduct'
-
-import compassIcon from '/icons/compass.png'
-import clockIcon from '/icons/clock.png'
-import vegIcon from '/icons/veg.png'
-
-import hariyalikebab from '/images/hariyalikebab.jpg'
-
 const OrderOnlineFieldComponent = () => {
 
   const [isActive, setIsActive] = useState({

@@ -9,7 +9,7 @@ import OrderTitleComponent from '../../components/RestaurantComponents/OrderTitl
 import OrderBodyComponent from '../../components/RestaurantComponents/OrderBodyComponent/OrderBodyComponent'
 import Footer from '../../components/Footer/Footer'
 import trial1 from '../../components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineFieldComponent/trial1'
-
+import mui from '../../components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineFieldComponent/mui'
 
 
 const RestaurantPage = () => {

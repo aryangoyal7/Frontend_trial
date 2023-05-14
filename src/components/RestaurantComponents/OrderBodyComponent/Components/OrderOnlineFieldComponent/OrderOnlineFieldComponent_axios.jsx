@@ -29,10 +29,13 @@ const OrderOnlineFieldComponent = () => {
     }
   };
 
-
-  /*
+/*
+  
   <button onClick={handleAddToCart}>Add to Cart</button> 
   */
+  
+  // place this button in a such a way, it sends booking info on click 
+
        
 
   
@@ -102,6 +105,8 @@ const OrderOnlineFieldComponent = () => {
     <div className={css.innerDiv}>
       <div className={css.leftBox}>
         {Object.entries(foodItemsData)?.map((val, id) => {
+          
+          
           return <div data-sb-id={val?.[0]} key={id} onClick={() => sideNavHandler(val)} className={isActive[val?.[0]] ? [css.navTab, css.activeNavTab].join(" ") : css.navTab}>{val?.[0]} ({val?.[1]?.length})</div>
         })}
       </div>

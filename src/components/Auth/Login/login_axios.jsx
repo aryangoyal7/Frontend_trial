@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const LoginComponent = () => {
+const loginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showRegistration, setShowRegistration] = useState(false);
@@ -89,4 +89,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default loginComponent;

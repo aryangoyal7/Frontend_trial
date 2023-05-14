@@ -7,9 +7,16 @@ import downArrow from '/icons/down-arrow.png'
 import profilePic from '/images/profilepic.jpg'
 
 import Login from '../../Auth/Login/Login'
+import loginComponent from '../../Auth/Login/login_axios'
+import loginbard from '../../Auth/Login/login_bard';
 import Signup from '../../Auth/Signup/Signup'
 
 import css from './NavigationBar.module.css';
+
+/*
+loginbard component not working
+
+*/
 
 let NavigationBar = ({ toogleMenu, setToggleMenu, page }) => {
     let [menuDisplay, setMenuDisplay] = useState(false);
@@ -89,8 +96,10 @@ let NavigationBar = ({ toogleMenu, setToggleMenu, page }) => {
             </div>
         </div>
         <div className={css.modals}>
-            {auth?.login ? <Login setAuth={setAuth} setLoggedIn={setLoggedIn} /> : null}
+          
+            {auth?.login ? <loginbard setAuth={setAuth} setLoggedIn={setLoggedIn} /> : null}
             {auth?.signup ? <Signup setAuth={setAuth} /> : null}
+            
         </div>
     </div>
 }

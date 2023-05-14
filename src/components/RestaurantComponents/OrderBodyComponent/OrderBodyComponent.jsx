@@ -31,9 +31,7 @@ const OrderBodyComponent = () => {
             case `/${city}/${hotel}/order`:
                 setPageComp(<OrderOnlineFieldComponent />);
                 break;
-            case `/${city}/${hotel}/reviews`:
-                setPageComp(<ReviewsComponent />);
-                break;
+            
             case `/${city}/${hotel}/photos`:
                 setPageComp(<PhotosComponent />);
                 break;
@@ -55,9 +53,8 @@ const OrderBodyComponent = () => {
             <NavLink to={`/${city}/${hotel}/order`} className={isActiveClass}>
                 Booking for Now
             </NavLink>
-            <NavLink to={`/${city}/${hotel}/reviews`} className={isActiveClass}>
-                Reviews
-            </NavLink>
+           
+            
             <NavLink to={`/${city}/${hotel}/photos`} className={isActiveClass}>
                 Photos
             </NavLink>

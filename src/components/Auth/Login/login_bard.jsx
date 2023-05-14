@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Axios from "axios";
 
-const Login = ({ setAuth, setLoggedIn }) => {
+const loginbard = ({ setAuth, setLoggedIn }) => {
   const [phone, setPhone] = useState();
 
   const [otpModal, setOTPModal] = useState(false);
@@ -69,4 +69,4 @@ const Login = ({ setAuth, setLoggedIn }) => {
   return createPortal(loginDiv, document.getElementById('modal'));
 };
 
-export default LoginBard;
+export default loginbard;

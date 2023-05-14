@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import './App.css';
 
 
-const HotelRoomBooking = ({ hotelID, username, name, phone }) => {
+const trial = ({ hotelID, username, name, phone }) => {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
@@ -40,4 +39,4 @@ const HotelRoomBooking = ({ hotelID, username, name, phone }) => {
   );
 };
 
-export default HotelRoomBooking;
+export default trial;

@@ -10,11 +10,14 @@ import GetTheApp from './pages/GetTheApp/GetTheApp'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 import SkipedPage from './pages/SkipedPage/SkipedPage'
 import UserSettingsPage from './pages/UserSettingsPage/UserSettingsPage'
+import LoginPage from './pages/loginPage/login'
+import SignupPage from './pages/signupPage/signup'
 
 import TestPage from './pages/TestPage/TestPage'
 // import AddRestaurantHeader from './components/AddRestaurantHeader/AddRestaurantHeader'
 import App from './App'
 import './index.css'
+import Signup from './components/Auth/Signup/Signup'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -22,6 +25,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route index element={<App />} />
       <Route path="/" element={<App />} />
       <Route path="/add-restaurant" element={<AddRestaurant />} />
+      <Route path="/login-page" element={<LoginPage />} />
+      <Route path="/signup-page" element={<SignupPage />} />
+
+
       <Route path="/show-case" element={<ShowCase />} />
       <Route path="/user/:userId" element={<User />} />
       <Route path="/user/:userId/:hashId" element={<User />} />

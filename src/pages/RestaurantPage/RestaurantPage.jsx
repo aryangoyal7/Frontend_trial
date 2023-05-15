@@ -10,7 +10,9 @@ import OrderBodyComponent from '../../components/RestaurantComponents/OrderBodyC
 import Footer from '../../components/Footer/Footer'
 import trial1 from '../../components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineFieldComponent/trial1'
 import mui from '../../components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineFieldComponent/mui'
-
+/*
+why is MUI not importing as a component
+*/
 
 const RestaurantPage = () => {
 
@@ -21,6 +23,7 @@ const RestaurantPage = () => {
     <div className={css.innerDiv2}>
       <OrderTitleComponent />
       <OrderBodyComponent />
+      <mui />
     </div>
     <Footer />
   </div>

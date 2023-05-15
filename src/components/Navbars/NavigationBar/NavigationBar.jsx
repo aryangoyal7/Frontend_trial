@@ -10,6 +10,7 @@ import Login from '../../Auth/Login/Login'
 import loginComponent from '../../Auth/Login/login_axios'
 import loginbard from '../../Auth/Login/login_bard';
 import Signup from '../../Auth/Signup/Signup'
+import trial from '../../Auth/Login/trial';
 
 import css from './NavigationBar.module.css';
 

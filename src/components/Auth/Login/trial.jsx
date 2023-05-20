@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Axios from "axios";
 
 const trial = () => {
-  const [username, setUsername] = useState("");
+  const [Mobile_number, setMobile_number] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    Axios.post("/api/login", {
-      username,
+    Axios.post("http://localhost:1000/api/users/login", {
+      Mobile_number,
       password,
     })
       .then((response) => {
@@ -32,9 +32,9 @@ const trial = () => {
       <form onSubmit={handleSubmit} style="width: 500px; margin: 0 auto;">
         <input
           type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          placeholder="Mobile_number"
+          value={Mobile_number}
+          onChange={(event) => setMobile_number(event.target.value)}
           style="width: 250px; margin: 10px 0 10px 10px; border-radius: 5px; border: 1px solid gray;"
         />
         <input

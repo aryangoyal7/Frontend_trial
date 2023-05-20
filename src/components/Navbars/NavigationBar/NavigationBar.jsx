@@ -43,6 +43,7 @@ let NavigationBar = ({ toogleMenu, setToggleMenu, page }) => {
                 {page !== 'add-restaurant' ? <Link to='/add-restaurant' className={css.menuItem} >Add restuarant</Link> : ''}
                 {page !== 'login-page' ? <Link to='/login-page' className={css.menuItem} >Login</Link> : ''}
                 {page !== 'signup-page' ? <Link to='/signup-page' className={css.menuItem} >SignUp</Link> : ''}
+                {page !== 'signup-page' ? <Link to='/user-bookings' className={css.menuItem} >My Bookings</Link> : ''}
             </div>
         </div>
         <div className={css.modals}>

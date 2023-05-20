@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import Axios from "axios";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState("");
+  const [Mobile_number, setMobile_number] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post("/login", {
-      username,
+    Axios.post("http://localhost:1000/api/users/login", {
+      Mobile_number,
       password,
     })
       .then((res) => {
@@ -33,9 +33,9 @@ const LoginPage = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Mobile_number"
+          value={Mobile_number}
+          onChange={(e) => setMobile_number(e.target.value)}
         />
         <input
           type="password"

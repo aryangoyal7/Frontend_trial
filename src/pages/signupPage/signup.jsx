@@ -2,19 +2,17 @@ import React, { useState } from "react";
 import Axios from "axios";
 
 const SignupPage = () => {
-  const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [phonenumber, setPhonenumber] = useState("");
+  const [Mobile_number, setMobile_number] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post("/signup", {
-      name,
+    Axios.post("http://localhost:1000/api/users/register", {
       username,
       password,
-      phonenumber,
+      Mobile_number,
     })
       .then((res) => {
         if (res.data.success) {
@@ -34,12 +32,7 @@ const SignupPage = () => {
     <div>
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+      
         <input
           type="text"
           placeholder="Username"
@@ -54,9 +47,9 @@ const SignupPage = () => {
         />
         <input
           type="text"
-          placeholder="Phone Number"
-          value={phonenumber}
-          onChange={(e) => setPhonenumber(e.target.value)}
+          placeholder="Mobile_number"
+          value={Mobile_number}
+          onChange={(e) => setMobile_number(e.target.value)}
         />
         <input type="submit" value="Signup" />
       </form>

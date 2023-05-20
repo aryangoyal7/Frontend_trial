@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
 
-const trial = ({ hotelID, username, name, phone }) => {
+const trial = ({ ClubID, username, name, phone }) => {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
-    Axios.get(`/api/hotels/${hotelID}/rooms`).then((response) => {
+    Axios.get(`/api/hotels/${ClubID}/rooms`).then((response) => {
       setRooms(response.data);
     });
-  }, [hotelID]);
+  }, [ClubID]);
 
-  const bookRoom = (roomID) => {
+  const bookRoom = (ClubID) => {
     Axios.post(`/api/bookings`, {
       hotelID,
       roomID,

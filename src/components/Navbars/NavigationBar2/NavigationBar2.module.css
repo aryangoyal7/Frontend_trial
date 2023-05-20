@@ -62,10 +62,10 @@
     color: #fff;
 }
 
-.searchBar {}
+
 
 .menuItem {
-    color: var(--color-p2-text);
+    color: var(--color-white);
     text-decoration: none;
     margin-right: 1rem;
     font-size: 1.1rem;

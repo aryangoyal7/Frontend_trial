@@ -10,9 +10,14 @@ import SearchBar from '../../../utils/SearchBar/SearchBar'
 
 import css from './NavigationBar2.module.css';
 
-let NavigationBar = ({ toogleMenu, setToggleMenu }) => {
+let NavigationBar = ({ toogleMenu, setToggleMenu, page }) => {
     let [menuDisplay, setMenuDisplay] = useState(false);
     let [loggedIn, setLoggedIn] = useState(localStorage.getItem('auth') || false);
+    let [auth, setAuth] = useState({
+        closed: true,
+        login: false,
+        signup: false
+    });
 
     const logoutHandler = () => {
         setLoggedIn(false);
@@ -25,63 +30,13 @@ let NavigationBar = ({ toogleMenu, setToggleMenu }) => {
             <div className={css.leftSide}>
                 <Link to='/' className={css.appTxt}>Thirtyml</Link>
             </div>
-            <div className={css.searchBar}>
-                <SearchBar />
-            </div>
-            <div className={css.rightSide}>
-                {loggedIn ? (<div className={css.menuItem}>
-                    <div className={css.profile} onClick={() => setMenuDisplay(val => !val)}>
-                        <img src={profilePic} alt="profile pic" className={css.profilePic} />
-                        <div className={css.profileName}>Profile</div>
-                        <img src={downArrow} alt="arrow" className={css.arrow} />
-                    </div>
-                    <div className={css.menu} style={{display: menuDisplay ? "block" : ""}}>
-                    <Link to='/user/ll/reviews' className={css.menuItemLinkTxt}>
-                            <div className={css.menuItemLink}>
-                                Profile
-                            </div>
-                        </Link>
-                        <Link to='/user/ll/notifications' className={css.menuItemLinkTxt}>
-                            <div className={css.menuItemLink}>
-                                Notifications
-                            </div>
-                        </Link>
-                        <Link to='/user/ll/bookmarks' className={css.menuItemLinkTxt}>
-                            <div className={css.menuItemLink}>
-                                Bookmarks
-                            </div>
-                        </Link>
-                        <Link to='/user/ll/reviews' className={css.menuItemLinkTxt}>
-                            <div className={css.menuItemLink}>
-                                Reviews
-                            </div>
-                        </Link>
-                        <Link to='/user/ll/network' className={css.menuItemLinkTxt}>
-                            <div className={css.menuItemLink}>
-                                Network
-                            </div>
-                        </Link>
-                        <Link to='/user/ll/find-friends' className={css.menuItemLinkTxt}>
-                            <div className={css.menuItemLink}>
-                                Find Friends
-                            </div>
-                        </Link>
-                        <Link to='/user/ll/settings' className={css.menuItemLinkTxt}>
-                            <div className={css.menuItemLink}>
-                                Settings
-                            </div>
-                        </Link>
-                        <div className={css.menuItemLinkTxt} onClick={logoutHandler}>
-                            <div className={css.menuItemLink}>
-                                Logout
-                            </div>
-                        </div>
-                    </div>
-                </div>) : (<>
-                    <div className={css.menuItem} onClick={setLoggedIn}>Log in</div>
-                    <div className={css.menuItem}>Sign up</div>
-                </>)}
-            </div>
+            {page !== 'login-page' ? <Link to='/login-page' className={css.menuItem} >Login</Link> : ''}
+                {page !== 'signup-page' ? <Link to='/signup-page' className={css.menuItem} >SignUp</Link> : ''}
+                {page !== 'signup-page' ? <Link to='/user-bookings' className={css.menuItem} >My Bookings</Link> : ''}
+            
+            <div>
+                
+          </div>
         </div>
     </div>
 }

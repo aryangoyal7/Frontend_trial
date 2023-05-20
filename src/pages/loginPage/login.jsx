@@ -1,16 +1,53 @@
-
 import React, { useState } from "react";
 import Axios from "axios";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`;
+
+const Title = styled.h1`
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Input = styled.input`
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+`;
+
+const SubmitButton = styled.input`
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+`;
 
 const LoginPage = () => {
-  const [Mobile_number, setMobile_number] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     Axios.post("http://localhost:1000/api/users/login", {
-      Mobile_number,
+      mobileNumber,
       password,
     })
       .then((res) => {
@@ -28,24 +65,24 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+    <Container>
+      <Title>Login</Title>
+      <Form onSubmit={handleSubmit}>
+        <Input
           type="text"
-          placeholder="Mobile_number"
-          value={Mobile_number}
-          onChange={(e) => setMobile_number(e.target.value)}
+          placeholder="Mobile Number"
+          value={mobileNumber}
+          onChange={(e) => setMobileNumber(e.target.value)}
         />
-        <input
+        <Input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="submit" value="Login" />
-      </form>
-    </div>
+        <SubmitButton type="submit" value="Login" />
+      </Form>
+    </Container>
   );
 };
 

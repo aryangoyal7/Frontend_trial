@@ -23,7 +23,7 @@ let MobileNavbar = ({ toogleMenu, setToggleMenu }) => {
             <Link className={css.title} to='/'>Thirtyml</Link>
         </div>
         <div className={css.navbar}>
-            <Link to='https://forms.gle/1EWu4hyDHHHqs5By5' className={css.menuItem} >Add restuarant</Link>
+            
             <div className={css.menuItem} onClick={() => setAuth({ closed: false, login: true, signup: false })}>Log in</div>
             <div className={css.menuItem} onClick={() => setAuth({ closed: false, login: false, signup: true })}>Sign up</div>
         </div>

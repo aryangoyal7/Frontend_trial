@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react'
 import {Formik, Form} from 'formik'
 import css from './OrderOnlineFieldComponent.module.css'
 import FoodItemProduct from '../../../../../utils/RestaurantUtils/FoodItemProduct/FoodItemProduct'
-import compassIcon from '/icons/compass.png'
 
 const OrderOnlineFieldComponent = () => {
 
@@ -17,12 +16,12 @@ const OrderOnlineFieldComponent = () => {
 
   const foodItemsData = {
     Couple: [
-      { ttl:"Standing table", votes:"12", price:"6900", desc:"Standing table with Full Cover!", },
-      { ttl:"Without Table", votes:"12", price:"1000", desc:"Full Cover of the payment",},
+      { ttl:"Standing table",  price:"6900", desc:"Standing table with Full Cover!", },
+      { ttl:"Without Table", price:"1000", desc:"Full Cover of the payment",},
      
     ],
     Stags: [
-      { ttl:"Standing table", votes:"12", price:"3000", desc:"Standing table with Full Cover!", },
+      { ttl:"Standing table",  price:"3000", desc:"Standing table with Full Cover!", },
       { ttl:"Without Table", votes:"12", price:"2000", desc:"Full Cover of the payment",}
     ],
      Ladies: [
@@ -88,7 +87,7 @@ const OrderOnlineFieldComponent = () => {
         </div>
         <div className={css.tabBox}>
           <div className={css.tagLine}>
-            <img src={compassIcon} className={css.clockIcon} alt="live track" />
+            
             <span className={css.tabTxt}>Get your name in ths Guestlist!</span>
           </div>
           <div className={css.hr} />

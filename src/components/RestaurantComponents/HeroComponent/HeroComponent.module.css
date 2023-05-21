@@ -1,64 +1,44 @@
-.outerDiv{
+.outerDiv {
     width: 100%;
     max-height: 420px;
     display: flex;
     justify-content: center;
+    overflow: auto;
 }
 
-.innerDiv{
-    width: 70%;
+.innerDiv6 {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Added to center align the content */
 }
 
-.scr1{
-    width: 59%;
-    height: 100%;
+.innerDiv6Title {
+    width: 100%;
+    text-align: center; /* Added to center align the text */
 }
 
-.scr2{
-    margin-left: 1%;
-    width: 40%;
-    height: 100%;
+.innerDiv6Body {
+    width: 100%;
     display: grid;
-    gap: 5px;
-    grid-template-rows: repeat(2, minmax(200px, 1fr));
-    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* Increased gap for better spacing */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Added auto-fit for responsive grid */
+    justify-items: center; /* Added to center align the grid items */
 }
 
-
-@media all and (max-width: 780px){
-
-    .outerDiv{
-        /* background-color: red; */
-        width: 100%;
-        height: max-content;
+@media all and (max-width: 780px) {
+    .outerDiv {
+        height: auto;
     }
 
-    .innerDiv{
-        width: 80%;
-    }
-
-    .scr1{
-        width: 100%;
-        height: 100%;
-        margin-bottom: 5px;
-    }
-
-    .scr2{
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        gap: 5px;
-        grid-template-rows: repeat(1, 120px);
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media all and (max-width: 480px){
-    .innerDiv{
+    .innerDiv6 {
         width: 90%;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .innerDiv6 {
+        width: 100%;
     }
 }

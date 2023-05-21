@@ -23,7 +23,6 @@ const RestaurantPage = () => {
     <div className={css.innerDiv2}>
       <OrderTitleComponent />
       <OrderBodyComponent />
-      <mui />
     </div>
     <Footer />
   </div>

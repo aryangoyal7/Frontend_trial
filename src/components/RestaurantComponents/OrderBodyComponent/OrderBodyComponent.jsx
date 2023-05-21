@@ -51,15 +51,7 @@ const OrderBodyComponent = () => {
                 Upcoming event
             </NavLink>
             <NavLink to={`/${city}/${hotel}/order`} className={isActiveClass}>
-                Booking for Now
-            </NavLink>
-           
-            
-            <NavLink to={`/${city}/${hotel}/photos`} className={isActiveClass}>
-                Photos
-            </NavLink>
-            <NavLink to={`/${city}/${hotel}/menu`} className={isActiveClass}>
-                Menu
+                Bookings for Now
             </NavLink>
         </div>
         <div className={css.componentsBody}>

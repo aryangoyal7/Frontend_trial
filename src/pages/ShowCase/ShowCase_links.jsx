@@ -42,7 +42,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "ToyRoom",
             rating: '3.6',
-            imgSrc: biryaniSCImg
+            imgSrc: biryaniSCImg,
+            clubID: ""
         },
         {
             promoted: false,
@@ -53,7 +54,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Tryst",
             rating: '2.6',
-            imgSrc: biryaniSCImg2
+            imgSrc: biryaniSCImg2,
+            clubID: ""
         },
         {
             promoted: true,
@@ -64,7 +66,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "DragonFly",
             rating: '4.6',
-            imgSrc: chapathiImg
+            imgSrc: chapathiImg,
+            clubID: ""
         },
         {
             promoted: false,
@@ -75,7 +78,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "The Game Placio",
             rating: '4.9',
-            imgSrc: fishImg
+            imgSrc: fishImg,
+            clubID: ""
         },
         {
             promoted: true,
@@ -86,7 +90,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Toy Room",
             rating: '4.6',
-            imgSrc: icecreamImg
+            imgSrc: icecreamImg,
+            clubID: ""
         },
         {
             promoted: false,
@@ -97,7 +102,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Dragonfly",
             rating: '2.8',
-            imgSrc: kfcSCImg
+            imgSrc: kfcSCImg,
+            clubID: ""
         },
         
         
@@ -115,7 +121,7 @@ let ShowCase = () => {
                     </div>
                     <div className={css.innerDiv6Body}>
                         {items?.map((item, id) => (
-                            <Link key={id} to={`/showcase/${id}`}>
+                            <Link key={id} to={`/showcase/${item.clubID}`}>
                                 <ShowcaseCard
                                     promoted={item.promoted}
                                     time={item.time}

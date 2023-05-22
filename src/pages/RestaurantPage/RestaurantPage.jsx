@@ -8,7 +8,6 @@ import HeroComponent from '../../components/RestaurantComponents/HeroComponent/H
 import OrderTitleComponent from '../../components/RestaurantComponents/OrderTitleComponent/OrderTitleComponent'
 import OrderBodyComponent from '../../components/RestaurantComponents/OrderBodyComponent/OrderBodyComponent'
 import Footer from '../../components/Footer/Footer'
-import trial1 from '../../components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineFieldComponent/trial1'
 /*
 why is MUI not importing as a component
 */

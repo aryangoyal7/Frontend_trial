@@ -14,7 +14,7 @@ import LoginPage from './pages/loginPage/login'
 import SignupPage from './pages/signupPage/signup'
 import CoverChargeBookingPage from './pages/bookingPage/pricing'
 import BookingsList from './components/users/userBookings'
-
+import ClubPricing from './components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineFieldComponent/dynamicPriceBooking' 
 import TestPage from './pages/TestPage/TestPage'
 // import AddRestaurantHeader from './components/AddRestaurantHeader/AddRestaurantHeader'
 import App from './App'
@@ -30,6 +30,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/login-page" element={<LoginPage />} />
       <Route path="/signup-page" element={<SignupPage />} />
       <Route path="/user-bookings" element={<BookingsList />} />
+      <Route path="/trial/" exact element={<ClubPricing />} />
+      <Route path="/Club-Page/:clubID" exact element={<ClubPricing />} />
 
 
       <Route path="/show-case" element={<ShowCase />} />

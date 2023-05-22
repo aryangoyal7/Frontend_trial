@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import HeroComponent from "../../../HeroComponent/HeroComponent";
+import NavigationBar from "../../../../Navbars/NavigationBar2/NavigationBar2";
+import OrderTitleComponent from "../../../OrderTitleComponent/OrderTitleComponent";
+import Footer from "../../../../Footer/Footer";
+
 
 
 
@@ -23,7 +28,10 @@ const ClubPricing = () => {
 
   return (
     <div>
-      <h1>Club Pricing</h1>
+      
+      <NavigationBar/>
+      <HeroComponent />
+      <h1>Club's Name</h1>
       <ul>
         {clubs.map((club) => (
           <li key={club.id}>
@@ -37,6 +45,7 @@ const ClubPricing = () => {
           </li>
         ))}
       </ul>
+      <Footer/>
     </div>
   );
 };

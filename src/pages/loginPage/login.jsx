@@ -42,20 +42,25 @@ const SubmitButton = styled.input`
 const LoginPage = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [loginStatus, setLoginStatus] = useState(null);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:1000/api/users/login", {
+    Axios.post("http://localhost:1002/api/users/login", {
       mobileNumber,
       password,
     })
       .then((res) => {
         if (res.data.success) {
+          setLoginStatus("User logged in");
           // Redirect to the home page
           window.location.href = "/";
         } else {
           // Display an error message
+          setLoginStatus("Login unsuccessful");
+
           alert("Invalid username or password");
         }
       })
@@ -82,6 +87,8 @@ const LoginPage = () => {
         />
         <SubmitButton type="submit" value="Login" />
       </Form>
+      <p>{loginStatus}</p>
+
     </Container>
   );
 };

@@ -12,7 +12,7 @@ const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);
 
   useEffect(() => {
-    Axios.get("/clubs").then((response) => {
+    Axios.get("http://localhost:1002/api/bookings/").then((response) => {
       setClubs(response.data);
     });
   }, []);

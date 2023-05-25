@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Link, useLocation } from 'react-router-dom';
+import { useNavigate,Link, useLocation } from 'react-router-dom';
 
 
 
@@ -31,7 +31,7 @@ let ShowCase = () => {
     let location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const page = urlParams.get('page');
-
+    const navigate=useNavigate()
    
     const items = [
         {
@@ -114,7 +114,9 @@ let ShowCase = () => {
                 </div>
                 <div className={css.innerDiv6Body}>
                     {items?.map((item, id) => {
-                        return <ShowcaseCard key={id} promoted={item.promoted} time={item.time} offB={item.offB} proExtraB={item.proExtraB} off={item.off} proExtra={item.proExtra} name={item.name} rating={item.rating} imgSrc={item.imgSrc} />
+                        <div onClick={()=>navigate("")}>
+                        <ShowcaseCard key={id} promoted={item.promoted} time={item.time} offB={item.offB} proExtraB={item.proExtraB} off={item.off} proExtra={item.proExtra} name={item.name} rating={item.rating} imgSrc={item.imgSrc} />
+                        </div>
                     })}
                 </div>
             </div>

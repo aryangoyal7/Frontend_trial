@@ -12,15 +12,15 @@ const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:1002/api/bookings/").then((response) => {
+    Axios.get("http://localhost:1002/api/pricing/").then((response) => {
       setClubs(response.data);
     });
   }, []);
 
-  const bookNow = (clubId, phoneNumber, username, time) => {
+  const bookNow = (ClubID, Mobile_number, username, time) => {
     Axios.post("/book-now", {
-      clubId,
-      phoneNumber,
+      ClubID,
+      Mobile_number,
       username,
       time,
     });
@@ -41,7 +41,7 @@ const ClubPricing = () => {
               <li>Couple Price: {club.couplePrice}</li>
               <li>Lady Price: {club.ladyPrice}</li>
             </ul>
-            <button onClick={() => bookNow(club.id, phoneNumber, username, time)}>Book Now</button>
+            <button onClick={() => bookNow(club.id, Mobile_number, username, time)}>Book Now</button>
           </li>
         ))}
       </ul>

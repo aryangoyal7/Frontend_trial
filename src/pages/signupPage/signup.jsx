@@ -1,98 +1,86 @@
-import React, { useState } from "react";
-import Axios from "axios";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;
+const SignupForm = () => {
+  const [username, setUsername] = useState('');
+  const [Mobile_number, setMobileNumber] = useState('');
+  const [password, setPassword] = useState('');
 
-const Title = styled.h1`
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-`;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name === 'username') {
+      setUsername(value);
+    } else if (name === 'Mobile_number') {
+      setMobileNumber(value);
+    } else if (name === 'password') {
+      setPassword(value);
+    }
+  };
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-`;
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
 
-const Input = styled.input`
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-`;
-
-const SubmitButton = styled.input`
-  padding: 10px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-`;
-
-const SignupPage = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [mobileNumber, setMobileNumber] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    Axios.post("http://localhost:1002/api/users/register", {
+    // Create an object with the signup data
+    const signupData = {
       username,
-      password,
-      mobileNumber,
-    })
-      .then((res) => {
-        if (res.data.success) {
-          // Redirect to the home page
-          window.location.href = "/";
-        } else {
-          // Display an error message
-          alert("Invalid username or password");
-        }
+      Mobile_number,
+      password
+    };
+
+    // Send the signup data to the API endpoint
+    axios.post('http://localhost:5005/api/users/register', signupData)
+      .then((response) => {
+        // Handle the response from the API
+        console.log(response.data);
+        // Add your desired logic here for successful signup
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        // Handle the error
+        console.error(error);
+        // Add your desired logic here for failed signup
       });
+
+    // Clear the input fields
+    setUsername('');
+    setMobileNumber('');
+    setPassword('');
   };
 
   return (
-    <Container>
-      <Title>Signup</Title>
-      <Form onSubmit={handleSubmit}>
-        <Input
+    <form onSubmit={handleFormSubmit}>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
           type="text"
-          placeholder="Username"
+          id="username"
+          name="username"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={handleInputChange}
         />
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Input
+      </div>
+      <div>
+        <label htmlFor="Mobile_number">Mobile Number:</label>
+        <input
           type="text"
-          placeholder="Mobile Number"
-          value={mobileNumber}
-          onChange={(e) => setMobileNumber(e.target.value)}
+          id="Mobile_number"
+          name="Mobile_number"
+          value={Mobile_number}
+          onChange={handleInputChange}
         />
-        <SubmitButton type="submit" value="Signup" />
-      </Form>
-    </Container>
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={handleInputChange}
+        />
+      </div>
+      <button type="submit">Signup</button>
+    </form>
   );
 };
 
-export default SignupPage;
+export default SignupForm;

@@ -1,96 +1,79 @@
-import React, { useState } from "react";
-import Axios from "axios";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;
+const LoginForm = () => {
+  const [Mobile_number, setMobileNumber] = useState('');
+  const [password, setPassword] = useState('');
 
-const Title = styled.h1`
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-`;
+  
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name === 'Mobile_number') {
+      setMobileNumber(value);
+    } else if (name === 'password') {
+      setPassword(value);
+    }
+  };
 
-const Input = styled.input`
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-`;
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
 
-const SubmitButton = styled.input`
-  padding: 10px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-`;
+    // Create an object with the login data
+    const loginData = {
+      Mobile_number,
+      password
+    };
 
-const LoginPage = () => {
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState(null);
+    // Send the login data to the API endpoint
+    axios.post('http://localhost:5005/api/users/login', loginData)
+      .then((response) => {
 
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    Axios.post("http://localhost:1002/api/users/login", {
-      mobileNumber,
-      password,
-    })
-      .then((res) => {
-        if (res.data.success) {
-          setLoginStatus("User logged in");
-          // Redirect to the home page
-          window.location.href = "/";
-        } else {
-          // Display an error message
-          setLoginStatus("Login unsuccessful");
-
-          alert("Invalid username or password");
-        }
+      
+        console.log("api response here")
+        // Handle the response from the API
+        console.log(response.data);
+        console.log("login successful")
+        // Add your desired logic here for successful login
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        // Handle the error
+        console.error(error);
+        // Add your desired logic here for failed login
       });
+
+    // Clear the input fields
+    setMobileNumber('');
+    setPassword('');
   };
 
   return (
-    <Container>
-      <Title>Login</Title>
-      <Form onSubmit={handleSubmit}>
-        <Input
+    <form onSubmit={handleFormSubmit}>
+      <div>
+        <label htmlFor="Mobile_number">Mobile Number:</label>
+        <input
           type="text"
-          placeholder="Mobile Number"
-          value={mobileNumber}
-          onChange={(e) => setMobileNumber(e.target.value)}
+          id="Mobile_number"
+          name="Mobile_number"
+          value={Mobile_number}
+          onChange={handleInputChange}
         />
-        <Input
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
           type="password"
-          placeholder="Password"
+          id="password"
+          name="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleInputChange}
         />
-        <SubmitButton type="submit" value="Login" />
-      </Form>
-      <p>{loginStatus}</p>
+      </div>
+      <button type="submit">Login</button>
+      
 
-    </Container>
+    </form>
   );
 };
 
-export default LoginPage;
+export default LoginForm;

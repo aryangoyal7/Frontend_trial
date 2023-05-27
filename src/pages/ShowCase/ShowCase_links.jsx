@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+
+import { useNavigate,Link, useLocation } from 'react-router-dom';
 
 
 
@@ -30,7 +31,7 @@ let ShowCase = () => {
     let location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const page = urlParams.get('page');
-
+    const navigate=useNavigate()
    
     const items = [
         {
@@ -42,8 +43,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "ToyRoom",
             rating: '3.6',
-            imgSrc: biryaniSCImg,
-            clubID: ""
+            imgSrc: biryaniSCImg
         },
         {
             promoted: false,
@@ -54,8 +54,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Tryst",
             rating: '2.6',
-            imgSrc: biryaniSCImg2,
-            clubID: ""
+            imgSrc: biryaniSCImg2
         },
         {
             promoted: true,
@@ -66,8 +65,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "DragonFly",
             rating: '4.6',
-            imgSrc: chapathiImg,
-            clubID: ""
+            imgSrc: chapathiImg
         },
         {
             promoted: false,
@@ -78,8 +76,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "The Game Placio",
             rating: '4.9',
-            imgSrc: fishImg,
-            clubID: ""
+            imgSrc: fishImg
         },
         {
             promoted: true,
@@ -90,8 +87,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Toy Room",
             rating: '4.6',
-            imgSrc: icecreamImg,
-            clubID: ""
+            imgSrc: icecreamImg
         },
         {
             promoted: false,
@@ -102,50 +98,31 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Dragonfly",
             rating: '2.8',
-            imgSrc: kfcSCImg,
-            clubID: ""
+            imgSrc: kfcSCImg
         },
         
         
         
     ]
 
-    
-    return (
-        <div className={css.outerDiv}>
-            <NavigationBar2 />
-            <div className={css.innerDiv6}>
-                <div className={css.w7}>
-                    <div className={css.innerDiv6Title}>
-                        {page === orderOnlinePage ? "" : page === diningOutPage ? "" : ""}
-                    </div>
-                    <div className={css.innerDiv6Body}>
-                        {items?.map((item, id) => (
-                            <Link key={id} to={`/showcase/${item.clubID}`}>
-                                <ShowcaseCard
-                                    promoted={item.promoted}
-                                    time={item.time}
-                                    offB={item.offB}
-                                    proExtraB={item.proExtraB}
-                                    off={item.off}
-                                    proExtra={item.proExtra}
-                                    name={item.name}
-                                    rating={item.rating}
-                                    imgSrc={item.imgSrc}
-                                />
-                            </Link>
-                        ))}
-                    </div>
+    return <div className={css.outerDiv}>
+        <NavigationBar2 />
+        <div className={css.innerDiv6}>
+            <div className={css.w7}>
+                <div className={css.innerDiv6Title}>
+                    {page === orderOnlinePage ? "" : page === diningOutPage ? "" : ""}
+                </div>
+                <div className={css.innerDiv6Body}>
+                    {items?.map((item, id) => {
+                       return  <div className={css.innerDiv6Body} onClick={()=>console.log("hello")}>
+                        <ShowcaseCard key={id} promoted={item.promoted} time={item.time} offB={item.offB} proExtraB={item.proExtraB} off={item.off} proExtra={item.proExtra} name={item.name} rating={item.rating} imgSrc={item.imgSrc} />
+                        </div>
+                    })}
                 </div>
             </div>
-            <Footer />
         </div>
-    );
-};
+        <Footer />
+    </div>
+}
 
 export default ShowCase;
-
-/*
-while routing make each restraunt page has a id by how which it will be routed
-
-*/

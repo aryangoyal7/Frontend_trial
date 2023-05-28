@@ -1,18 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+
 import Axios from "axios";
 import HeroComponent from "../../../HeroComponent/HeroComponent";
 import NavigationBar from "../../../../Navbars/NavigationBar2/NavigationBar2";
 import OrderTitleComponent from "../../../OrderTitleComponent/OrderTitleComponent";
 import Footer from "../../../../Footer/Footer";
 
+const getUserId = () => {
+  const token = localStorage.getItem('jwtToken'); // Assuming you store the JWT token in local storage
+  let userID = null;
+
+  if (token) {
+    const decodedToken = jwt_decode(token); // Assuming you have a library like 'jwt-decode' to decode the token
+    userID = decodedToken.userID;
+  }
+
+  return userID;
+};
+const userID = getUserId(); // Assuming you have a function to get the userID
+
+
 
 
 
 const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);
+  const { ClubID } = useParams();
+
 
   useEffect(() => {
-    Axios.get("http://localhost:1002/api/pricing/").then((response) => {
+    Axios.get('http://localhost:1002/api/pricing/${ClubID}').then((response) => {
       setClubs(response.data);
     });
   }, []);
@@ -20,6 +38,7 @@ const ClubPricing = () => {
   const bookNow = (ClubID, Mobile_number, username, time) => {
     Axios.post("/book-now", {
       ClubID,
+      userID, // Include the userID in the POST data
       Mobile_number,
       username,
       time,

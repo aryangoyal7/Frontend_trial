@@ -43,7 +43,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "ToyRoom",
             rating: '3.6',
-            imgSrc: biryaniSCImg
+            imgSrc: biryaniSCImg,
+            ClubID:"test"
         },
         {
             promoted: false,
@@ -54,7 +55,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Tryst",
             rating: '2.6',
-            imgSrc: biryaniSCImg2
+            imgSrc: biryaniSCImg2,
+            ClubID:""
         },
         {
             promoted: true,
@@ -65,7 +67,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "DragonFly",
             rating: '4.6',
-            imgSrc: chapathiImg
+            imgSrc: chapathiImg,
+            ClubID:""
         },
         {
             promoted: false,
@@ -76,7 +79,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "The Game Placio",
             rating: '4.9',
-            imgSrc: fishImg
+            imgSrc: fishImg,
+            ClubID:""
         },
         {
             promoted: true,
@@ -87,7 +91,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Toy Room",
             rating: '4.6',
-            imgSrc: icecreamImg
+            imgSrc: icecreamImg,
+            ClubID:""
         },
         {
             promoted: false,
@@ -98,7 +103,8 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Dragonfly",
             rating: '2.8',
-            imgSrc: kfcSCImg
+            imgSrc: kfcSCImg,
+            ClubID:""
         },
         
         
@@ -114,7 +120,7 @@ let ShowCase = () => {
                 </div>
                 <div className={css.innerDiv6Body}>
                     {items?.map((item, id) => {
-                       return  <div className={css.innerDiv6Body} onClick={()=>console.log("hello")}>
+                       return  <div className={css.innerDiv6Body} onClick={()=>navigate()}>
                         <ShowcaseCard key={id} promoted={item.promoted} time={item.time} offB={item.offB} proExtraB={item.proExtraB} off={item.off} proExtra={item.proExtra} name={item.name} rating={item.rating} imgSrc={item.imgSrc} />
                         </div>
                     })}

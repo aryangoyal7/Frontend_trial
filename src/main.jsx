@@ -35,6 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
       <Route path="/show-case" element={<ShowCase_links />} />
+      <Route path="/show-case/test" element={<TestPage/>} />
       <Route path="/user/:userId" element={<User />} />
       <Route path="/user/:userId/:hashId" element={<User />} />
       <Route path="/user/:userId/notifications" element={<SkipedPage />} />

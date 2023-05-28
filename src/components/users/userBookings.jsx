@@ -32,7 +32,7 @@ const BookingList = ({ userId }) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`/api/bookings?userId=${userId}`);
+        const response = await axios.get(`http://localhost:5005/api/bookings/userId=${userId}`);
         setBookings(response.data);
       } catch (error) {
         console.error('Error fetching bookings:', error);

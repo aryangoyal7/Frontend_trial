@@ -7,19 +7,6 @@ import NavigationBar from "../../../../Navbars/NavigationBar2/NavigationBar2";
 import OrderTitleComponent from "../../../OrderTitleComponent/OrderTitleComponent";
 import Footer from "../../../../Footer/Footer";
 
-const getUserId = () => {
-  const token = localStorage.getItem('jwtToken'); // Assuming you store the JWT token in local storage
-  let userID = null;
-
-  if (token) {
-    const decodedToken = jwt_decode(token); // Assuming you have a library like 'jwt-decode' to decode the token
-    userID = decodedToken.userID;
-  }
-
-  return userID;
-};
-const userID = getUserId(); // Assuming you have a function to get the userID
-
 
 
 
@@ -30,7 +17,7 @@ const ClubPricing = () => {
 
 
   useEffect(() => {
-    Axios.get('http://localhost:1002/api/pricing/${ClubID}').then((response) => {
+    Axios.get('http://localhost:5005/api/pricing/646f4207e907d42c3e10bfe9').then((response) => {
       setClubs(response.data);
     });
   }, []);
@@ -53,7 +40,7 @@ const ClubPricing = () => {
       <h1>Club's Name</h1>
       <ul>
         {clubs.map((club) => (
-          <li key={club.id}>
+          <li>
             <h2>{club.name}</h2>
             <ul>
               <li>Stag Price: {club.stagPrice}</li>

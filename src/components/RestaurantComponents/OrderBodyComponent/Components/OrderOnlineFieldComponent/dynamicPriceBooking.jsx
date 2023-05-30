@@ -14,7 +14,6 @@ import Footer from "../../../../Footer/Footer";
 const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);
   const [load, setLoad] = useState(false);
-  const { ClubID } = useParams();
 
 
   useEffect(() => {

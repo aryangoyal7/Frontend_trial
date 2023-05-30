@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import jwt_decode from 'jwt-decode';
+
 
 const Container = styled.div`
   max-width: 600px;
@@ -29,6 +31,11 @@ const BookingLabel = styled.div`
 const BookingList = ({ userId }) => {
   const [bookings, setBookings] = useState([]);
 
+  const accessToken = document.cookie
+  console.log(accessToken)
+  
+ 
+
   useEffect(() => {
     const fetchBookings = async () => {
       try {
@@ -37,8 +44,13 @@ const BookingList = ({ userId }) => {
           .split('; ')
           .find((row) => row.startsWith('access_token'))
           .split('=')[1];
+          console.log(accessToken)
+        
+          const decodedToken = jwt_decode(accessToken);
+        const userID = decodedToken.userID;
+        console.log(userID)
 
-        const response = await axios.get(`http://localhost:5005/api/bookings/6467f64e21567db98155f780`, {
+        const response = await axios.get(`http://localhost:5005/api/bookings/${userID}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

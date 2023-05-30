@@ -32,7 +32,18 @@ const BookingList = ({ userId }) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`http://localhost:5005/api/bookings/userId=${userId}`);
+        // Get the access token from the cookie
+        const accessToken = document.cookie
+          .split('; ')
+          .find((row) => row.startsWith('access_token'))
+          .split('=')[1];
+
+        const response = await axios.get(`http://localhost:5005/api/bookings/6467f64e21567db98155f780`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
         setBookings(response.data);
       } catch (error) {
         console.error('Error fetching bookings:', error);
@@ -41,6 +52,7 @@ const BookingList = ({ userId }) => {
 
     fetchBookings();
   }, [userId]);
+
 
   return (
     <Container>

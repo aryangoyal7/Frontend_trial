@@ -46,7 +46,7 @@ const ClubPricing = () => {
       <h1>Club's Name</h1>
       <ul>
 
-        { load ? (<h1>Loading...</h1> :
+        { load ? (<h1>Loading...</h1>) :
          clubs.map((club) => (
           <li key={club.id}>
 

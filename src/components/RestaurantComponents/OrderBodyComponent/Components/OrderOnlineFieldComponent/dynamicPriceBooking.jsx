@@ -14,14 +14,17 @@ import Footer from "../../../../Footer/Footer";
 const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);
   const [load, setLoad] = useState(false);
-  const { ClubID } = useParams();
 
-
+  async function callData() {
+    await Axios.get("http://localhost:1002/api/bookings/").then((response) => {
+      setClubs(response.data);
+    }).then((res)=>console.log(res.data));
+  }
+  
   useEffect(() => {
     setLoad(true);
-    Axios.get('http://localhost:5005/api/pricing/646f4207e907d42c3e10bfe9').then((response) => {
-      setClubs(response.data);
-    });
+    callData();
+
     setLoad(false);
   }, []);
 
@@ -42,9 +45,11 @@ const ClubPricing = () => {
       <HeroComponent />
       <h1>Club's Name</h1>
       <ul>
-        { load ? (<h1>Loading...</h1>) :
-          clubs.map((club) => (
-          <li>
+
+        { load ? (<h1>Loading...</h1> :
+         clubs.map((club) => (
+          <li key={club.id}>
+
             <h2>{club.name}</h2>
             <ul>
               <li>Stag Price: {club.stagPrice}</li>

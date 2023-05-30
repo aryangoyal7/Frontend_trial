@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+
 import Axios from "axios";
 import HeroComponent from "../../../HeroComponent/HeroComponent";
 import NavigationBar from "../../../../Navbars/NavigationBar2/NavigationBar2";
 import OrderTitleComponent from "../../../OrderTitleComponent/OrderTitleComponent";
 import Footer from "../../../../Footer/Footer";
+
 
 
 
@@ -21,13 +24,15 @@ const ClubPricing = () => {
   useEffect(() => {
     setLoad(true);
     callData();
+
     setLoad(false);
   }, []);
 
-  const bookNow = (clubId, phoneNumber, username, time) => {
+  const bookNow = (ClubID, Mobile_number, username, time) => {
     Axios.post("/book-now", {
-      clubId,
-      phoneNumber,
+      ClubID,
+      userID, // Include the userID in the POST data
+      Mobile_number,
       username,
       time,
     });
@@ -40,16 +45,18 @@ const ClubPricing = () => {
       <HeroComponent />
       <h1>Club's Name</h1>
       <ul>
+
         { load ? (<h1>Loading...</h1> :
          clubs.map((club) => (
           <li key={club.id}>
+
             <h2>{club.name}</h2>
             <ul>
               <li>Stag Price: {club.stagPrice}</li>
               <li>Couple Price: {club.couplePrice}</li>
               <li>Lady Price: {club.ladyPrice}</li>
             </ul>
-            <button onClick={() => bookNow(club.id, phoneNumber, username, time)}>Book Now</button>
+            <button onClick={() => bookNow(club.id, Mobile_number, username, time)}>Book Now</button>
           </li>
         ))}
       </ul>

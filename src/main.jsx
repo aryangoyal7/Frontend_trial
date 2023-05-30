@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import ShowCase from './pages/ShowCase/ShowCase'
+import ShowCase_links from './pages/ShowCase/ShowCase_links'
 import RestaurantPage from './pages/RestaurantPage/RestaurantPage'
 import User from './pages/User/User'
 import GetTheApp from './pages/GetTheApp/GetTheApp'
@@ -25,6 +26,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Routes>
       <Route index element={<App />} />
       <Route path="/" element={<App />} />
+      <Route path="/test-pricing" element={<ClubPricing />} />
+
       <Route path="/add-restaurant" element={<AddRestaurant />} />
       <Route path="/login-page" element={<LoginPage />} />
       <Route path="/signup-page" element={<SignupPage />} />
@@ -33,7 +36,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/Club-Page/:clubID" exact element={<ClubPricing />} />
 
 
-      <Route path="/show-case" element={<ShowCase />} />
+      <Route path="/show-case" element={<ShowCase_links />} />
+      <Route path="/show-case/test" element={<TestPage/>} />
       <Route path="/user/:userId" element={<User />} />
       <Route path="/user/:userId/:hashId" element={<User />} />
       <Route path="/user/:userId/notifications" element={<SkipedPage />} />

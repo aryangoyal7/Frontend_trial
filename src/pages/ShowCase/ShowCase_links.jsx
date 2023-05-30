@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+
+import { useNavigate,Link, useLocation } from 'react-router-dom';
 
 
 
@@ -30,7 +31,7 @@ let ShowCase = () => {
     let location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const page = urlParams.get('page');
-
+    const navigate=useNavigate()
    
     const items = [
         {
@@ -43,7 +44,7 @@ let ShowCase = () => {
             name: "ToyRoom",
             rating: '3.6',
             imgSrc: biryaniSCImg,
-            clubID: ""
+            ClubID:"test"
         },
         {
             promoted: false,
@@ -55,7 +56,7 @@ let ShowCase = () => {
             name: "Tryst",
             rating: '2.6',
             imgSrc: biryaniSCImg2,
-            clubID: ""
+            ClubID:""
         },
         {
             promoted: true,
@@ -67,7 +68,7 @@ let ShowCase = () => {
             name: "DragonFly",
             rating: '4.6',
             imgSrc: chapathiImg,
-            clubID: ""
+            ClubID:""
         },
         {
             promoted: false,
@@ -79,7 +80,7 @@ let ShowCase = () => {
             name: "The Game Placio",
             rating: '4.9',
             imgSrc: fishImg,
-            clubID: ""
+            ClubID:""
         },
         {
             promoted: true,
@@ -91,7 +92,7 @@ let ShowCase = () => {
             name: "Toy Room",
             rating: '4.6',
             imgSrc: icecreamImg,
-            clubID: ""
+            ClubID:""
         },
         {
             promoted: false,
@@ -103,49 +104,31 @@ let ShowCase = () => {
             name: "Dragonfly",
             rating: '2.8',
             imgSrc: kfcSCImg,
-            clubID: ""
+            ClubID:""
         },
         
         
         
     ]
 
-    
-    return (
-        <div className={css.outerDiv}>
-            <NavigationBar2 />
-            <div className={css.innerDiv6}>
-                <div className={css.w7}>
-                    <div className={css.innerDiv6Title}>
-                        {page === orderOnlinePage ? "" : page === diningOutPage ? "" : ""}
-                    </div>
-                    <div className={css.innerDiv6Body}>
-                        {items?.map((item, id) => (
-                            <Link key={id} to={`/showcase/${item.clubID}`}>
-                                <ShowcaseCard
-                                    promoted={item.promoted}
-                                    time={item.time}
-                                    offB={item.offB}
-                                    proExtraB={item.proExtraB}
-                                    off={item.off}
-                                    proExtra={item.proExtra}
-                                    name={item.name}
-                                    rating={item.rating}
-                                    imgSrc={item.imgSrc}
-                                />
-                            </Link>
-                        ))}
-                    </div>
+    return <div className={css.outerDiv}>
+        <NavigationBar2 />
+        <div className={css.innerDiv6}>
+            <div className={css.w7}>
+                <div className={css.innerDiv6Title}>
+                    {page === orderOnlinePage ? "" : page === diningOutPage ? "" : ""}
+                </div>
+                <div className={css.innerDiv6Body}>
+                    {items?.map((item, id) => {
+                       return  <div className={css.innerDiv6Body} onClick={()=>navigate()}>
+                        <ShowcaseCard key={id} promoted={item.promoted} time={item.time} offB={item.offB} proExtraB={item.proExtraB} off={item.off} proExtra={item.proExtra} name={item.name} rating={item.rating} imgSrc={item.imgSrc} />
+                        </div>
+                    })}
                 </div>
             </div>
-            <Footer />
         </div>
-    );
-};
+        <Footer />
+    </div>
+}
 
 export default ShowCase;
-
-/*
-while routing make each restraunt page has a id by how which it will be routed
-
-*/

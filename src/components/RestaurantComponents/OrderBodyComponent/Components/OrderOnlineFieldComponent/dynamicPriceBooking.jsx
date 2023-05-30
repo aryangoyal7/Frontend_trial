@@ -16,9 +16,9 @@ const ClubPricing = () => {
   const [load, setLoad] = useState(false);
 
   async function callData() {
-    await Axios.get("http://localhost:1002/api/bookings/").then((response) => {
+    await Axios.get("http://localhost:1002/api/bookings/").then((res)=>{res.json().then((response) => {
       setClubs(response.data);
-    }).then((res)=>console.log(res.data));
+    })});
   }
   
   useEffect(() => {

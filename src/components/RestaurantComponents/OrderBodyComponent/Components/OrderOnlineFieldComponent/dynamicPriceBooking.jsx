@@ -10,11 +10,18 @@ import Footer from "../../../../Footer/Footer";
 
 const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);
+  const [load, setLoad] = useState(false);
 
-  useEffect(() => {
-    Axios.get("http://localhost:1002/api/bookings/").then((response) => {
+  async function callData() {
+    await Axios.get("http://localhost:1002/api/bookings/").then((response) => {
       setClubs(response.data);
-    });
+    }).then((res)=>console.log(res.data));
+  }
+  
+  useEffect(() => {
+    setLoad(true);
+    callData();
+    setLoad(false);
   }, []);
 
   const bookNow = (clubId, phoneNumber, username, time) => {
@@ -33,7 +40,8 @@ const ClubPricing = () => {
       <HeroComponent />
       <h1>Club's Name</h1>
       <ul>
-        {clubs.map((club) => (
+        { load ? (<h1>Loading...</h1> :
+         clubs.map((club) => (
           <li key={club.id}>
             <h2>{club.name}</h2>
             <ul>

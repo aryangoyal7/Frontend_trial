@@ -22,6 +22,7 @@ const ClubPricing = () => {
     } catch (error) {
       console.log(error);
     }
+    await Axios.get("http://localhost:1002/api/bookings/").then((res)=>res.json()).then((res)=>console.log(res)).then((response)=>setClubs(response.data));
   }
   
   useEffect(() => {
@@ -64,6 +65,20 @@ const ClubPricing = () => {
             </li>
           ))
         )}
+
+        { load ? (<h1>Loading...</h1>) :
+         clubs.map((club) => (
+          <li key={club.id}>
+
+            <h2>{club.name}</h2>
+            <ul>
+              <li>Stag Price: {club.stagPrice}</li>
+              <li>Couple Price: {club.couplePrice}</li>
+              <li>Lady Price: {club.ladyPrice}</li>
+            </ul>
+            <button onClick={() => bookNow(club.id, Mobile_number, username, time)}>Book Now</button>
+          </li>
+        ))}
       </ul>
       <Footer />
     </div>

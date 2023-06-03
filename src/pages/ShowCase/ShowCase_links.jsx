@@ -132,3 +132,10 @@ let ShowCase = () => {
 }
 
 export default ShowCase;
+
+
+// test the routing - depending on club id
+
+// make a grid of cards and put 3 in one line
+
+

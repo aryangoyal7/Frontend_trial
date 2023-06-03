@@ -50,7 +50,7 @@ const BookingList = ({ userId }) => {
         const userID = decodedToken.userID;
         console.log(userID)
 
-        const response = await axios.get(`http://localhost:5005/api/bookings/${userID}`, {
+        const response = await axios.get(`http://localhost:5005/api/bookings/6467f64e21567db98155f780`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -76,10 +76,10 @@ const BookingList = ({ userId }) => {
           {bookings.map((booking) => (
             <BookingItem key={booking.id}>
               <BookingLabel>
-                <strong>Club Name:</strong> {booking.clubName}
+                <strong>Club Name:</strong> {booking.username}
               </BookingLabel>
               <BookingLabel>
-                <strong>Time:</strong> {booking.time}
+                <strong>Mobile_number:</strong> {booking.Mobile_number}
               </BookingLabel>
               <BookingLabel>
                 <strong>Price:</strong> {booking.price}
@@ -93,3 +93,9 @@ const BookingList = ({ userId }) => {
 };
 
 export default BookingList;
+
+
+// extract userID from access token and use in the url of api call 
+
+// extract bookings from it and render it
+

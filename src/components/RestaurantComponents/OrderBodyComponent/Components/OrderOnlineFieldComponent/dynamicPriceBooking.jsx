@@ -15,12 +15,19 @@ const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);
   const [load, setLoad] = useState(false);
 
-
+  async function callData() {
+    try {
+      const res = await Axios.get("http://localhost:5005/api/pricing/646f4207e907d42c3e10bfe9");
+      setClubs(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   useEffect(() => {
     setLoad(true);
-    Axios.get('http://localhost:5005/api/pricing/646f4207e907d42c3e10bfe9').then((response) => {
-      setClubs(response.data);
-    });
+    callData();
+
     setLoad(false);
   }, []);
 
@@ -36,25 +43,29 @@ const ClubPricing = () => {
 
   return (
     <div>
-      
-      <NavigationBar/>
+      <NavigationBar />
       <HeroComponent />
       <h1>Club's Name</h1>
       <ul>
-        { load ? (<h1>Loading...</h1>) :
+        {clubs.length === 0 ? (
+          <h1>Loading...</h1>
+        ) : (
           clubs.map((club) => (
-          <li>
-            <h2>{club.name}</h2>
-            <ul>
-              <li>Stag Price: {club.stagPrice}</li>
-              <li>Couple Price: {club.couplePrice}</li>
-              <li>Lady Price: {club.ladyPrice}</li>
-            </ul>
-            <button onClick={() => bookNow(club.id, Mobile_number, username, time)}>Book Now</button>
-          </li>
-        ))}
+            <li key={club.id}>
+              <h2>{club.name}</h2>
+              <ul>
+                <li>Stag Price: {club.StagPrice}</li>
+                <li>Couple Price: {club.CouplePrice}</li>
+                <li>Lady Price: {club.LadyPrice}</li>
+              </ul>
+              <button onClick={() => bookNow(club.id, Mobile_number, username, time)}>
+                Book Now
+              </button>
+            </li>
+          ))
+        )}
       </ul>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
@@ -62,6 +73,10 @@ const ClubPricing = () => {
 export default ClubPricing;
 
 
-// this page can be used for every restraunt added , and clubID can be hardcoded
+// problem - prices not rendering even on valid api calls
 
-// edit this and make it similar to restraunt page 
+// problem 2 - make a button or a drop down menu to send booking against the 3 option
+// it should include clubID, userID, mobile number of loggen in user and time
+
+// pop up displaying booking confirmed - after the booking is made 
+

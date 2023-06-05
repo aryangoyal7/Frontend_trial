@@ -62,7 +62,7 @@ const BookingList = ({ userId }) => {
         const userID = decodedToken.userID;
 
         const response = await axios.get(
-          `http://localhost:5005/api/bookings/6467f64e21567db98155f780`,
+          `http://localhost:5005/api/bookings/${userID}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,

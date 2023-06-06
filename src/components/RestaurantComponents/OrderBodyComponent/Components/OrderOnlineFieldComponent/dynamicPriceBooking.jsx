@@ -5,8 +5,9 @@ import HeroComponent from "../../../HeroComponent/HeroComponent";
 import NavigationBar from "../../../../Navbars/NavigationBar2/NavigationBar2";
 import OrderTitleComponent from "../../../OrderTitleComponent/OrderTitleComponent";
 import Footer from "../../../../Footer/Footer";
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 const ClubPricing = () => {
   const [clubs, setClubs] = useState([]);

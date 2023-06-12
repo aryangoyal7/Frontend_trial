@@ -53,14 +53,19 @@ const BookingList = ({ userId }) => {
     const fetchBookings = async () => {
       try {
         // Get the access token from the cookie
-        const accessToken = document.cookie
-          .split('; ')
-          .find((row) => row.startsWith('access_token'))
-          .split('=')[1];
+
+        // var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)myCookie\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+        // var decodedCookie = decodeURIComponent(cookieValue);
+
+        // var jsonObject = JSON.parse(decodedCookie);
+
+        // console.log("HOLA: ",jsonObject.accessToken);
+        const accessToken = document.cookie;
 
         const decodedToken = jwt_decode(accessToken);
         const userID = decodedToken.userID;
-
+        console.log("USER ID: ", userID);
         const response = await axios.get(
           `http://localhost:5005/api/bookings/6467f64e21567db98155f780`,
           {
@@ -71,6 +76,7 @@ const BookingList = ({ userId }) => {
         );
 
         setBookings(response.data);
+        console.log("BOOKINGS DATA: ", response)
       } catch (error) {
         console.error('Error fetching bookings:', error);
       }
@@ -89,15 +95,24 @@ const BookingList = ({ userId }) => {
         ) : (
           <ul>
             {bookings.map((booking) => (
-              <BookingItem key={booking.id}>
+              <BookingItem key={booking._id}>
                 <BookingLabel>
-                  <strong>Club Name:</strong> {booking.username}
+                  <strong>Username:</strong> {booking.username}
+                </BookingLabel>
+                <BookingLabel>
+                  <strong>Timestamp:</strong> 
+                </BookingLabel>
+                <BookingLabel>
+                  <strong>Club Name:</strong> {booking.ClubName}
                 </BookingLabel>
                 <BookingLabel>
                   <strong>Mobile Number:</strong> {booking.Mobile_number}
                 </BookingLabel>
                 <BookingLabel>
                   <strong>Price:</strong> {booking.price}
+                </BookingLabel>
+                <BookingLabel>
+                  <strong>Booking Type:</strong> {booking.price}
                 </BookingLabel>
               </BookingItem>
             ))}

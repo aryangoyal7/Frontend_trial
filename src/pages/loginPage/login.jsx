@@ -33,6 +33,13 @@ const LoginForm = () => {
         console.log("api response here")
         // Handle the response from the API
         console.log(response.data);
+        var jsonString = JSON.stringify(response.data);
+
+        // document.cookie = encodeURIComponent(jsonString);
+
+        document.cookie = response.data.accessToken;
+        console.log("HAVE SET THE COOKIE: ", document.cookie)
+
         console.log("login successful")
         // Add your desired logic here for successful login
       })

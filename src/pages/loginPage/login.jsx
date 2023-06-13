@@ -28,11 +28,11 @@ const LoginForm = () => {
     // Send the login data to the API endpoint
     axios.post('http://localhost:5005/api/users/login', loginData, { withCredentials: true })
       .then((response) => {
-
-      
-        console.log("api response here")
+        // console.log("LOGIN DATA:", loginData);
+        // console.log("api response here")
         // Handle the response from the API
-        console.log(response.data);
+        // console.log(response.data.access_token);
+        document.cookie = response.data.access_token;
         console.log("login successful")
         // Add your desired logic here for successful login
       })

@@ -59,7 +59,10 @@ const BookingList = ({ userId }) => {
         const userID = decodedToken.user.id;
         // console.log("USER ID: ", decodedToken.user.id);
         const response = await axios.get(
-          `http://localhost:5005/api/bookings/6467f64e21567db98155f780`,
+          `http://localhost:5003/api/bookings/${userID}`, // user id variable
+
+          // booking type, time , username, 
+
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -95,12 +98,19 @@ const BookingList = ({ userId }) => {
                   <strong>Mobile Number:</strong> {booking.Mobile_number}
                 </BookingLabel>
                 <BookingLabel>
-                  <strong>Price:</strong> {booking.price}
+                  <strong>Price:</strong> {booking.price} 
+                </BookingLabel>
+                <BookingLabel>
+                  <strong>time of booking:</strong> {booking.time} 
+                </BookingLabel>
+                <BookingLabel>
+                  <strong>Booking type:</strong> {booking.booking_type} 
                 </BookingLabel>
               </BookingItem>
             ))}
           </ul>
         )}
+    
       </BookingListContainer>
       <Footer />
     </Container>

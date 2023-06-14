@@ -36,7 +36,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       
 
       <Route path="/add-restaurant" element={<AddRestaurant />} />
-      <Route path="/login-page" element={<LoginPage />} />
+      <Route path="/login-page" element={<SignInSide />} />
       <Route path="/signup-page" element={<SignupPage />} />
       <Route path="/user-bookings" element={<BookingsList />} />
       <Route path="/trial/" exact element={<ClubPricing />} />

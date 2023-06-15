@@ -101,7 +101,7 @@ const BookingList = ({ userId }) => {
                   <strong>Price:</strong> {booking.price}
                 </BookingLabel>
                 <BookingLabel>
-                  <strong>Time:</strong> {booking.time.match(/.{1,10}/)}
+                  <strong>Time:</strong> {booking.time}
                 </BookingLabel>
               </BookingItem>
             ))}

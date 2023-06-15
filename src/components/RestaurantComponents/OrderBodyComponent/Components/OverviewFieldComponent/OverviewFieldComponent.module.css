@@ -27,7 +27,8 @@
 .ttl{
     font-size: 1.5rem;
     font-weight: 500;
-    color: var(--color-title-text);
+    /* color: var(--color-title-text); */
+    color: white;
 }
 
 .menuSec{

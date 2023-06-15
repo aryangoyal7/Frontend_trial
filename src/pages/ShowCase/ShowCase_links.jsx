@@ -44,7 +44,7 @@ let ShowCase = () => {
             name: "ToyRoom",
             rating: '3.6',
             imgSrc: biryaniSCImg,
-            ClubID:"test"
+            ClubID:"646f4207e907d42c3e10bfe9"
         },
         {
             promoted: false,
@@ -56,7 +56,7 @@ let ShowCase = () => {
             name: "Tryst",
             rating: '2.6',
             imgSrc: biryaniSCImg2,
-            ClubID:""
+            ClubID:"tryst"
         },
         {
             promoted: true,
@@ -68,7 +68,7 @@ let ShowCase = () => {
             name: "DragonFly",
             rating: '4.6',
             imgSrc: chapathiImg,
-            ClubID:""
+            ClubID:"dragonfly"
         },
         {
             promoted: false,
@@ -80,7 +80,7 @@ let ShowCase = () => {
             name: "The Game Placio",
             rating: '4.9',
             imgSrc: fishImg,
-            ClubID:""
+            ClubID:"thegameplacio"
         },
         {
             promoted: true,
@@ -89,10 +89,10 @@ let ShowCase = () => {
             proExtraB: true,
             off: "30",
             proExtra: "40",
-            name: "Toy Room",
+            name: "Another Club",
             rating: '4.6',
             imgSrc: icecreamImg,
-            ClubID:""
+            ClubID:"anotherclub"
         },
         {
             promoted: false,
@@ -101,10 +101,10 @@ let ShowCase = () => {
             proExtraB: false,
             off: "30",
             proExtra: "40",
-            name: "Dragonfly",
+            name: "Another Club 2",
             rating: '2.8',
             imgSrc: kfcSCImg,
-            ClubID:""
+            ClubID:"anotherclub2"
         },
         
         
@@ -120,7 +120,7 @@ let ShowCase = () => {
                 </div>
                 <div className={css.innerDiv6Body}>
                     {items?.map((item, id) => {
-                       return  <div className={css.innerDiv6Body} onClick={()=>navigate()}>
+                       return  <div className={css.innerDiv6Body} onClick={()=>navigate(`${item.ClubID}`)}>
                         <ShowcaseCard key={id} promoted={item.promoted} time={item.time} offB={item.offB} proExtraB={item.proExtraB} off={item.off} proExtra={item.proExtra} name={item.name} rating={item.rating} imgSrc={item.imgSrc} />
                         </div>
                     })}

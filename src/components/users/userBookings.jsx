@@ -59,7 +59,7 @@ const BookingList = ({ userId }) => {
         const userID = decodedToken.user.id;
         // console.log("USER ID: ", decodedToken.user.id);
         const response = await axios.get(
-          `http://localhost:5005/api/bookings/6467f64e21567db98155f780`,
+          `http://localhost:5005/api/bookings/${userID}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -68,7 +68,7 @@ const BookingList = ({ userId }) => {
         );
 
         setBookings(response.data);
-        // console.log(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching bookings:', error);
       }
@@ -95,7 +95,13 @@ const BookingList = ({ userId }) => {
                   <strong>Mobile Number:</strong> {booking.Mobile_number}
                 </BookingLabel>
                 <BookingLabel>
+                  <strong>Booking Type:</strong> {booking.bookingType}
+                </BookingLabel>
+                <BookingLabel>
                   <strong>Price:</strong> {booking.price}
+                </BookingLabel>
+                <BookingLabel>
+                  <strong>Time:</strong> {booking.time.match(/.{1,10}/)}
                 </BookingLabel>
               </BookingItem>
             ))}

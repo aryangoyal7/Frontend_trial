@@ -11,8 +11,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { set } from "mongoose";
 
 
-
 const ClubPricing = () => {
+  const { id } = useParams();
   const [user, setUser] = useState([]);
   const [clubs, setClubs] = useState([]);
   const [load, setLoad] = useState(false);
@@ -29,6 +29,7 @@ const ClubPricing = () => {
 
 
   async function UserData() {
+    console.log("USE PARAMS: ", id);
     try {
       const token = document.cookie;
       const response = await Axios.get(

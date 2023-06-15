@@ -31,6 +31,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/test-pricing" element={<ClubPricing />} />
       <Route path="/test" element={<SignInSide />} />
       <Route path="/customer-support" element={<CustomerSupportPage />} />
+      <Route path="/old-login" element={<LoginPage />} />
+
 
 
       
@@ -42,7 +44,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/trial/" exact element={<ClubPricing />} />
       <Route path="/Club-Page/:clubID" exact element={<ClubPricing />} />
 
+      <Route path="/show-case/:clubId" element={<ClubPricing />} />
+      
 
+      
       <Route path="/show-case" element={<ShowCase_links />} />
       <Route path="/show-case/test" element={<TestPage/>} />
       <Route path="/user/:userId" element={<User />} />

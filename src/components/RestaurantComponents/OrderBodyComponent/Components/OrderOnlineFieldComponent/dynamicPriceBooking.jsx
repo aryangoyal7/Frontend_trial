@@ -32,7 +32,7 @@ const ClubPricing = () => {
     try {
       const token = document.cookie;
       const response = await Axios.get(
-        `http://localhost:5003/api/users/current`,
+        `http://localhost:5005/api/users/current`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ const ClubPricing = () => {
   async function callData() {
     try {
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await Axios.get("http://localhost:5003/api/pricing/646f4207e907d42c3e10bfe9");
+      const res = await Axios.get("http://localhost:5005/api/pricing/646f4207e907d42c3e10bfe9");
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);
@@ -109,7 +109,7 @@ const ClubPricing = () => {
   let bookingType;
   const bookNow = (ClubID, bookingType, clubName, userId, username, Mobile_number, price) => {
     // Axios.post("/book-now", {
-    Axios.post("http://localhost:5003/bookings/", {
+    Axios.post("http://localhost:5005/bookings/", {
       ClubID: ClubID, // Include the ClubID in the POST data
       bookingType,
       clubname: clubName, // Include the clubName in the POST data

@@ -7,7 +7,7 @@
     z-index: 5;
     color: var(--color-white);
     border-bottom: var(--brd2);
-    background-color: #222;
+    background-color: #000000;
     transition: all 0.3s ease;
 }
 

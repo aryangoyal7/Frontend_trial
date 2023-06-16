@@ -17,9 +17,7 @@ const RestaurantPage = () => {
   return <div className={css.outerDiv}>
     <NavigationBar />
     
-    <HeroComponent />
     <div className={css.innerDiv2}>
-      <OrderTitleComponent />
       <OrderBodyComponent />
     </div>
     <Footer />

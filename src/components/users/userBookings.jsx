@@ -46,8 +46,20 @@ const NoBookingsText = styled.p`
   margin-top: 20px;
 `;
 
+
+
+
 const BookingList = ({ userId }) => {
   const [bookings, setBookings] = useState([]);
+
+
+  const options = {
+    timeZone: 'Asia/Kolkata', // Set the time zone to IST
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  };
+  
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -77,6 +89,8 @@ const BookingList = ({ userId }) => {
     fetchBookings();
   }, [userId]);
 
+  
+
   return (
     <Container>
       <NavigationBar />
@@ -101,7 +115,7 @@ const BookingList = ({ userId }) => {
                   <strong>Price:</strong> {booking.price}
                 </BookingLabel>
                 <BookingLabel>
-                  <strong>Time:</strong> {booking.time}
+                  <strong>Time:</strong> {Date(booking.time).toLocaleString('en-IN', options)}
                 </BookingLabel>
               </BookingItem>
             ))}

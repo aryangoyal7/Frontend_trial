@@ -27,7 +27,6 @@ let ShowcaseCard = (props) => {
                 </div>
                 <div className={css.tagBox}>
                     <div className={css.tagTitle}>Clubbing</div>
-                    <div className={css.tagTxt}>₹<span className={css.type}>3500</span> for two <span className={css.num}></span></div>
                 </div>
             </div>
             

@@ -110,7 +110,7 @@ const ClubPricing = () => {
   let bookingType;
   const bookNow = (ClubID, bookingType, clubName, userId, username, Mobile_number, price) => {
     // Axios.post("/book-now", {
-    Axios.post("http://localhost:4000/book-now/", {
+    Axios.post("http://35.192.171.200:4000/book-now/", {
       ClubID: ClubID, // Include the ClubID in the POST data
       bookingType,
       clubname: clubName, // Include the clubName in the POST data

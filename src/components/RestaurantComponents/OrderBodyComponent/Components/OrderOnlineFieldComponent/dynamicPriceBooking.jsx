@@ -33,7 +33,7 @@ const ClubPricing = () => {
     try {
       const token = document.cookie;
       const response = await Axios.get(
-        `http://35.192.171.200/api/users/current`,
+        `http://35.192.171.200:5005/api/users/current`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

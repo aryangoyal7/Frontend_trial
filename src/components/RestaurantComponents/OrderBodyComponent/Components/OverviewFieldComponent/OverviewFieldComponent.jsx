@@ -43,7 +43,7 @@ const OverviewFieldComponent = () => {
       const token = document.cookie;
       console.log("TOKEN HERE IS: ",document.cookie)
       const response = await Axios.get(
-        `http://35.192.171.200/api/users/current`,
+        `http://35.192.171.200:5005/api/users/current`,
         {
           headers: {
             Authorization: `${document.cookie}`,
@@ -64,7 +64,7 @@ const OverviewFieldComponent = () => {
     try {
       console.log("USER NAME: ", username);
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await Axios.get(`http://35.192.171.200/api/pricing/${hotel}`);
+      const res = await Axios.get(`http://35.192.171.200:5005/api/pricing/${hotel}`);
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);

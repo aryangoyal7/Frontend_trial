@@ -57,12 +57,12 @@ const BookingList = ({ userId }) => {
 
         const decodedToken = jwt_decode(accessToken);
         const userID = decodedToken.user.id;
-        // console.log("USER ID: ", decodedToken.user.id);
+        console.log("USER ID: ", decodedToken.user.id);
         const response = await axios.get(
           `http://localhost:5005/api/bookings/${userID}`,
           {
             headers: {
-              Authorization: `Bearer ${accessToken}`,
+              Authorization: `${accessToken}`,
             },
           }
         );

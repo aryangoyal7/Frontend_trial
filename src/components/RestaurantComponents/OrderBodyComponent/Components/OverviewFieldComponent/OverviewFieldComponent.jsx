@@ -25,7 +25,7 @@ const OverviewFieldComponent = () => {
   const [load, setLoad] = useState(false);
   const [ClubID, setClubID] = useState("");
   const [clubName, setClubName] = useState("");
-  const [userId, setuserId] = useState("ss");
+  const [userId, setuserId] = useState("");
   const [username, setUsername] = useState("");
   const [Mobile_number, setMobile_number] = useState("");
   const [Coupleprice, setCouple] = useState("newprice");
@@ -41,15 +41,16 @@ const OverviewFieldComponent = () => {
     // console.log("USE PARAMS: ", hotel);
     try {
       const token = document.cookie;
+      console.log("TOKEN HERE IS: ",document.cookie)
       const response = await Axios.get(
         `http://localhost:5005/api/users/current`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `${document.cookie}`,
           },
         }
       );
-      // console.log("REQUEST COMPLETED ", response.data);
+      console.log("REQUEST COMPLETED ", response.data);
       setUsername(response.data.username);
       setClubName(response.data.username);
       setMobile_number(response.data.Mobile_number);
@@ -61,6 +62,7 @@ const OverviewFieldComponent = () => {
   }
   async function callData() {
     try {
+      console.log("USER NAME: ", username);
       // console.log("ACCESS TOKEN: ", document.cookie)
       const res = await Axios.get(`http://localhost:5005/api/pricing/${hotel}`);
       // const user_name = await Axios.get("localhost:5005/api/users/current");
@@ -144,7 +146,6 @@ const OverviewFieldComponent = () => {
   //   bookNow(clubs.id, Mobile_number, password,booking_type, time);
   //   navigate('/Book/book-now');
   // };
-  const notify = () => toast("Wow so easy!");
 
   const data = {
     phone: "9988098812",

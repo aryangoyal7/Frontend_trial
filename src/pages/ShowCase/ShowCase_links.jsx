@@ -56,7 +56,7 @@ let ShowCase = () => {
             name: "Tryst",
             rating: '2.6',
             imgSrc: biryaniSCImg2,
-            ClubID:"tryst"
+            ClubID:"6491fc3d906547bc3cb8fd39"
         },
         {
             promoted: true,

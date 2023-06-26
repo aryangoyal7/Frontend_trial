@@ -26,7 +26,7 @@ const LoginForm = () => {
     };
 
     // Send the login data to the API endpoint
-    axios.post('http://localhost:5005/api/users/login', loginData, { withCredentials: true })
+    axios.post('http://35.192.171.200/api/users/login', loginData, { withCredentials: true })
       .then((response) => {
         // console.log("LOGIN DATA:", loginData);
         // console.log("api response here")

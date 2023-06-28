@@ -82,7 +82,6 @@ const LoginForm = () => {
         /> */}
         <TextField id="password" name="password" value={password} onChange={handleInputChange} label="Password" variant="outlined" />
       </div>
-      <ToastContainer />
       <div style={{ margin: "15px" }}>
         <Button variant="contained" type="Submit">Login</Button>
       </div>
@@ -96,6 +95,7 @@ const LoginForm = () => {
     <div style={{ margin: "15px" }}>
       <Button variant="contained" onClick={()=>navigate('/')}>Home</Button>
     </div>
+    <ToastContainer />
   </div>
   </>)}
     </>

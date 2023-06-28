@@ -62,7 +62,7 @@ const SignupForm = () => {
           value={username}
           onChange={handleInputChange}
         /> */}
-        <TextField onChange={handleInputChange} type="text" name="username" id="username" value={username} label="Mobile Number" variant="outlined" />
+        <TextField onChange={handleInputChange} type="text" name="username" id="username" value={username} label="Username" variant="outlined" />
       </div>
       <div style={{ margin: "15px" }} >
         {/* <label htmlFor="Mobile_number">Mobile Number:</label>

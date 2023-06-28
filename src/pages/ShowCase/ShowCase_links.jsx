@@ -31,7 +31,7 @@ let ShowCase = () => {
     let location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const page = urlParams.get('page');
-    const navigate=useNavigate()
+    const navigate=useNavigate();
    
     const items = [
         {

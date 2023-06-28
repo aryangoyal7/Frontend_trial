@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const SignupForm = () => {
   const [username, setUsername] = useState('');
@@ -32,6 +36,7 @@ const SignupForm = () => {
       .then((response) => {
         // Handle the response from the API
         console.log(response.data);
+        toast("Sign Up Successfull!");
         // Add your desired logic here for successful signup
       })
       .catch((error) => {
@@ -48,37 +53,43 @@ const SignupForm = () => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <div>
-        <label htmlFor="username">Username:</label>
+      <div style={{ margin: "15px" }} >
+        {/* <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
           name="username"
           value={username}
           onChange={handleInputChange}
-        />
+        /> */}
+        <TextField onChange={handleInputChange} type="text" name="username" id="username" value={username} label="Mobile Number" variant="outlined" />
       </div>
-      <div>
-        <label htmlFor="Mobile_number">Mobile Number:</label>
+      <div style={{ margin: "15px" }} >
+        {/* <label htmlFor="Mobile_number">Mobile Number:</label>
         <input
           type="text"
           id="Mobile_number"
           name="Mobile_number"
           value={Mobile_number}
           onChange={handleInputChange}
-        />
+        /> */}
+        <TextField onChange={handleInputChange} type="text" name="Mobile_number" id="Mobile_number" value={Mobile_number} label="Mobile Number" variant="outlined" />
       </div>
-      <div>
-        <label htmlFor="password">Password:</label>
+      <div style={{ margin: "15px" }} >
+        {/* <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
           name="password"
           value={password}
           onChange={handleInputChange}
-        />
+        /> */}
+        <TextField id="password" name="password" value={password} onChange={handleInputChange} label="Password" variant="outlined" />
       </div>
-      <button type="submit">Signup</button>
+      <ToastContainer />
+      <div style={{ margin: "15px" }}>
+        <Button variant="contained" type="Submit">Sign Up</Button>
+      </div>
     </form>
   );
 };

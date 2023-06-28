@@ -9,7 +9,7 @@ const trial = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    Axios.post("http://35.192.171.200:1000/api/users/login", {
+    Axios.post("http://34.93.237.206:1000/api/users/login", {
       Mobile_number,
       password,
     })

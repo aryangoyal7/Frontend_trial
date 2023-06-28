@@ -28,7 +28,7 @@ const SignupForm = () => {
     };
 
     // Send the signup data to the API endpoint
-    axios.post('http://35.192.171.200:5005/api/users/register', signupData)
+    axios.post('http://34.93.237.206:5005/api/users/register', signupData)
       .then((response) => {
         // Handle the response from the API
         console.log(response.data);

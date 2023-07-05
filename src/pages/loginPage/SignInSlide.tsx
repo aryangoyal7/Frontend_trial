@@ -59,7 +59,7 @@ const [Mobile_number, setMobileNumber] = useState('');
         };
     
         // Send the login data to the API endpoint
-        axios.post('http://34.93.237.206:5005/api/users/login', loginData, { withCredentials: true })
+        axios.post('http://34.100.246.170:5005/api/users/login', loginData, { withCredentials: true })
           .then((response) => {
     
           

@@ -40,13 +40,19 @@ const OverviewFieldComponent = () => {
   async function UserData() {
     // console.log("USE PARAMS: ", hotel);
     try {
-      const token = document.cookie;
-      console.log("TOKEN HERE IS: ",document.cookie)
+      var token = document.cookie;
+      if(document.cookie[0] === "c"){
+        console.log("AREY IDHAR CHAL GAYA")
+        token = document.cookie.split(";")[1];
+        console.log("idhar ka token",token)
+      }
+      
+      console.log("TOKEN HERE IS: ",token)
       const response = await Axios.get(
-        `http://34.93.237.206:5005/api/users/current`,
+        `http://34.100.246.170:5005/api/users/current`,
         {
           headers: {
-            Authorization: `${document.cookie}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -64,7 +70,7 @@ const OverviewFieldComponent = () => {
     try {
       console.log("USER NAME: ", username);
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await Axios.get(`http://34.93.237.206:5005/api/pricing/${hotel}`);
+      const res = await Axios.get(`http://34.100.246.170:5005/api/pricing/${hotel}`);
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);
@@ -121,7 +127,7 @@ const OverviewFieldComponent = () => {
   let bookingType;
   const bookNow = (ClubID, bookingType, clubName, userId, username, Mobile_number, price) => {
     // Axios.post("/book-now", {
-    Axios.post("http://34.93.237.206:4000/book-now/", {
+    Axios.post("http://34.100.246.170:4000/book-now/", {
       ClubID: ClubID, // Include the ClubID in the POST data
       bookingType,
       clubname: clubName, // Include the clubName in the POST data

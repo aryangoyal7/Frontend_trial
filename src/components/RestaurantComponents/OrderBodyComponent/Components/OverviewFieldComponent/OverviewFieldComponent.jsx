@@ -49,7 +49,7 @@ const OverviewFieldComponent = () => {
       
       console.log("TOKEN HERE IS: ",token)
       const response = await Axios.get(
-        `http://34.125.27.77/api/api/users/current`,
+        `http://34.125.27.77/api/users/current`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ const OverviewFieldComponent = () => {
     try {
       console.log("USER NAME: ", username);
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await Axios.get(`http://34.125.27.77/api/api/pricing/${hotel}`);
+      const res = await Axios.get(`http://34.125.27.77/api/pricing/${hotel}`);
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);

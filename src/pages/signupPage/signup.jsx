@@ -32,7 +32,7 @@ const SignupForm = () => {
     };
 
     // Send the signup data to the API endpoint
-    axios.post('http://34.125.27.77/api/users/register', signupData)
+    axios.post('http://34.125.27.77:5005/api/users/register', signupData)
       .then((response) => {
         // Handle the response from the API
         console.log(response.data);

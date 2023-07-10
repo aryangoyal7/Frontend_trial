@@ -41,6 +41,7 @@ const OverviewFieldComponent = () => {
   // console.log("USER PARAMS: ",hotel);
 
   async function UserData() {
+    token = localStorage.getItem("access_token");
     // console.log("USE PARAMS: ", hotel);
     try {
         if(document.cookie[0] === "c"){
@@ -53,7 +54,7 @@ const OverviewFieldComponent = () => {
         }  
       console.log("TOKEN HERE IS: ",token)
       const response = await axios.get(
-        `http://34.100.246.170/api/users/current`,
+        `https://server.thirtyml.in/api/users/current`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -75,7 +76,7 @@ const OverviewFieldComponent = () => {
     try {
       console.log("USER NAME: ", username);
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await axios.get(`http://34.100.246.170/api/pricing/${hotel}`);
+      const res = await axios.get(`https://server.thirtyml.in/api/pricing/${hotel}`);
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);
@@ -141,7 +142,7 @@ const OverviewFieldComponent = () => {
     try {
 
       const response = await axios.post(
-        `http://34.100.246.170/api/bookings/book-now`,
+        `https://server.thirtyml.in/api/bookings/book-now`,
         {
           ClubID: ClubID, // Include the ClubID in the POST data
           bookingType,

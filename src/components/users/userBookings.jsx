@@ -67,7 +67,7 @@ const BookingList = ({ userId }) => {
           accessToken = localStorage.getItem("access_token");
         }
         const response = await axios.get(
-          `http://34.100.246.170/api/bookings/${userID}`,
+          `https://server.thirtyml.in/api/bookings/${userID}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,

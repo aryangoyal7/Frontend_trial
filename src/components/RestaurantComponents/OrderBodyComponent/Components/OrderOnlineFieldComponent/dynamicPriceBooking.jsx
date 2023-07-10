@@ -42,7 +42,7 @@ const ClubPricing = () => {
       }
       console.log("TOKEN HERE IS: ",token)
       const response = await Axios.get(
-        `http://34.100.246.170/api/users/current`,
+        `https://server.thirtyml.in/api/users/current`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -62,7 +62,7 @@ const ClubPricing = () => {
   async function callData() {
     try {
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await Axios.get("http://34.100.246.170/api/pricing/646f4207e907d42c3e10bfe9");
+      const res = await Axios.get("https://server.thirtyml.in/api/pricing/646f4207e907d42c3e10bfe9");
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);

@@ -33,7 +33,7 @@ const LoginForm = () => {
     };
 
     // Send the login data to the API endpoint
-    axios.post('http://34.100.246.170/api/users/login', loginData, { withCredentials: true })
+    axios.post('https://server.thirtyml.in/api/users/login', loginData, { withCredentials: true })
       .then((response) => {
         // console.log("LOGIN DATA:", loginData);
         // console.log("api response here")

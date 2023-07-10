@@ -32,7 +32,7 @@ const SignupForm = () => {
     };
 
     // Send the signup data to the API endpoint
-    axios.post('http://34.100.246.170/api/users/register', signupData)
+    axios.post('https://server.thirtyml.in/api/users/register', signupData)
       .then((response) => {
         // Handle the response from the API
         toast("Sign Up Successfull! Please Login now! Redirecting...");

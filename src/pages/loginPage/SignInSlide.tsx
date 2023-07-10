@@ -59,7 +59,7 @@ const [Mobile_number, setMobileNumber] = useState('');
         };
     
         // Send the login data to the API endpoint
-        axios.post('http://34.100.246.170/api/users/login', loginData, { withCredentials: true })
+        axios.post('https://server.thirtyml.in/api/users/login', loginData, { withCredentials: true })
           .then((response) => {
     
           

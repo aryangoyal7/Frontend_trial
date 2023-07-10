@@ -49,7 +49,7 @@ const OverviewFieldComponent = () => {
       
       console.log("TOKEN HERE IS: ",token)
       const response = await Axios.get(
-        `http://34.100.246.170:5005/api/users/current`,
+        `http://34.125.27.77/api/api/users/current`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ const OverviewFieldComponent = () => {
     try {
       console.log("USER NAME: ", username);
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await Axios.get(`http://34.100.246.170:5005/api/pricing/${hotel}`);
+      const res = await Axios.get(`http://34.125.27.77/api/api/pricing/${hotel}`);
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);
@@ -127,7 +127,7 @@ const OverviewFieldComponent = () => {
   let bookingType;
   const bookNow = (ClubID, bookingType, clubName, userId, username, Mobile_number, price) => {
     // Axios.post("/book-now", {
-    Axios.post("http://34.100.246.170:4000/book-now/", {
+    Axios.post("http://34.125.27.77:4000/book-now/", {
       ClubID: ClubID, // Include the ClubID in the POST data
       bookingType,
       clubname: clubName, // Include the clubName in the POST data

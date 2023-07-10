@@ -59,7 +59,7 @@ const BookingList = ({ userId }) => {
         const userID = decodedToken.user.id;
         console.log("USER ID: ", decodedToken.user.id);
         const response = await axios.get(
-          `http://34.125.27.77:5005/api/bookings/${userID}`,
+          `http://34.100.246.170/api/bookings/${userID}`,
           {
             headers: {
               Authorization: `${accessToken}`,

@@ -41,6 +41,7 @@ const LoginForm = () => {
         // console.log(response.data.access_token);
         document.cookie = response.data.access_token;
         console.log("login successful", response.data.username);
+        localStorage.setItem("access_token",response.data.access_token);
         setusername(response.data.username);
         toast("Login Successfull!");
         // Add your desired logic here for successful login

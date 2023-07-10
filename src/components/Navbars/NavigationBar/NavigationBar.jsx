@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import mobileHand from '/icons/smartphone.png'
 import menuBar from '/icons/menu.png'
-
+import Button from '@mui/material/Button';
 import css from './NavigationBar.module.css';
 
 /*
@@ -19,10 +19,12 @@ let NavigationBar = ({ toogleMenu, setToggleMenu, page }) => {
         login: false,
         signup: false
     });
-
+    const navigate = useNavigate();
     const logoutHandler = () => {
         setLoggedIn(false);
         localStorage.removeItem("auth");
+        localStorage.removeItem("access_token");
+        navigate("/login-page")
     }
 
     return <div className={css.navbar}>
@@ -39,6 +41,7 @@ let NavigationBar = ({ toogleMenu, setToggleMenu, page }) => {
                 {page !== 'signup-page' ? <Link to='/signup-page' className={css.menuItem} >SignUp</Link> : ''}
                 {page !== 'signup-page' ? <Link to='/user-bookings' className={css.menuItem} >My Bookings</Link> : ''}
             </div>
+            <Button variation="contained" onClick={logoutHandler} sx={{color: "white"}}>Logout</Button>
         </div>
         <div className={css.modals}>
           

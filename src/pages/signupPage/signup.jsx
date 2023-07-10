@@ -35,8 +35,12 @@ const SignupForm = () => {
     axios.post('http://34.100.246.170/api/users/register', signupData)
       .then((response) => {
         // Handle the response from the API
+        toast("Sign Up Successfull! Please Login now! Redirecting...");
+        setTimeout(() => {
+          navigate("/login-page");
+        }, 2000);
         console.log(response.data);
-        toast("Sign Up Successfull!");
+       // toast("Sign Up Successfull!");
         // Add your desired logic here for successful signup
       })
       .catch((error) => {

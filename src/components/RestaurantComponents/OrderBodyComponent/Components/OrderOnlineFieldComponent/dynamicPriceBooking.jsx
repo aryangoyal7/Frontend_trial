@@ -26,12 +26,21 @@ const ClubPricing = () => {
   const [Stagprice, setStag] = useState("newprice");
   // const { userId } = useParams(); // Assuming you are extracting the userId from the URL params
   const navigate = useNavigate();
-
+  var token = document.cookie;
 
   async function UserData() {
     console.log("USE PARAMS: ", id);
     try {
-      const token = document.cookie;
+      //const token = document.cookie;
+      if(document.cookie[0] === "c"){
+        console.log("AREY IDHAR CHAL GAYA")
+        token = document.cookie.split(";")[1];
+        console.log("idhar ka token",token)
+      }
+      if(!token){
+        token = localStorage.getItem("access_token");
+      }
+      console.log("TOKEN HERE IS: ",token)
       const response = await Axios.get(
         `http://34.100.246.170/api/users/current`,
         {
@@ -40,7 +49,7 @@ const ClubPricing = () => {
           },
         }
       );
-      // console.log("REQUEST COMPLETED ", response.data);
+      console.log("REQUEST COMPLETED ", response.data);
       setUsername(response.data.username);
       setClubName(response.data.username);
       setMobile_number(response.data.Mobile_number);

@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode';
 
 import Footer from '../Footer/Footer';
 import NavigationBar from '../Navbars/NavigationBar2/NavigationBar2';
-
+var token = document.cookie;
 const Container = styled.div`
   width: 100%;
   max-width: 100%;
@@ -53,16 +53,24 @@ const BookingList = ({ userId }) => {
     const fetchBookings = async () => {
       try {
         // Get the access token from the cookie
-        const accessToken = document.cookie;
+        var accessToken = document.cookie;
 
         const decodedToken = jwt_decode(accessToken);
         const userID = decodedToken.user.id;
         console.log("USER ID: ", decodedToken.user.id);
+        if(document.cookie[0] === "c"){
+       //   console.log("AREY IDHAR CHAL GAYA")
+         accessToken = document.cookie.split(";")[1];
+       //   console.log("idhar ka token",token)
+        }
+        if(!accessToken){
+          accessToken = localStorage.getItem("access_token");
+        }
         const response = await axios.get(
           `http://34.100.246.170/api/bookings/${userID}`,
           {
             headers: {
-              Authorization: `${accessToken}`,
+              Authorization: `Bearer ${accessToken}`,
             },
           }
         );
@@ -101,7 +109,7 @@ const BookingList = ({ userId }) => {
                   <strong>Price:</strong> {booking.price}
                 </BookingLabel>
                 <BookingLabel>
-                  <strong>Time:</strong> {booking.time.match(/.{1,10}/)}
+                  <strong>Time:</strong> {booking.createdAt}
                 </BookingLabel>
               </BookingItem>
             ))}

@@ -15,8 +15,9 @@ import RecentlyViewedCard from '../../../../../utils/Cards/RecentlyViewedCard/Re
 import CollectionsCard from '../../../../../utils/Cards/card2/CollectionsCard'
 import { useEffect , useState} from "react"
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Axios from "axios";
+import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import Button from '@mui/material/Button';
 
 const OverviewFieldComponent = () => {
   const { id } = useParams();
@@ -31,6 +32,8 @@ const OverviewFieldComponent = () => {
   const [Coupleprice, setCouple] = useState("newprice");
   const [Ladyprice, setLady] = useState("newprice");
   const [Stagprice, setStag] = useState("newprice");
+  const [isloggedIn, setisloggedIn] = useState(false);
+  var token = document.cookie; 
   // const { userId } = useParams(); // Assuming you are extracting the userId from the URL params
   const navigate = useNavigate();
 
@@ -40,15 +43,16 @@ const OverviewFieldComponent = () => {
   async function UserData() {
     // console.log("USE PARAMS: ", hotel);
     try {
-      var token = document.cookie;
-      if(document.cookie[0] === "c"){
-        console.log("AREY IDHAR CHAL GAYA")
+        if(document.cookie[0] === "c"){
+  //      console.log("AREY IDHAR CHAL GAYA")
         token = document.cookie.split(";")[1];
-        console.log("idhar ka token",token)
+  //      console.log("idhar ka token",token)
       }
-      
+        if(!token){
+          token = localStorage.getItem("access_token");
+        }  
       console.log("TOKEN HERE IS: ",token)
-      const response = await Axios.get(
+      const response = await axios.get(
         `http://34.100.246.170/api/users/current`,
         {
           headers: {
@@ -56,6 +60,7 @@ const OverviewFieldComponent = () => {
           },
         }
       );
+      console.log("is set?",localStorage.getItem('access_token'))
       console.log("REQUEST COMPLETED ", response.data);
       setUsername(response.data.username);
       setClubName(response.data.username);
@@ -70,7 +75,7 @@ const OverviewFieldComponent = () => {
     try {
       console.log("USER NAME: ", username);
       // console.log("ACCESS TOKEN: ", document.cookie)
-      const res = await Axios.get(`http://34.100.246.170/api/pricing/${hotel}`);
+      const res = await axios.get(`http://34.100.246.170/api/pricing/${hotel}`);
       // const user_name = await Axios.get("localhost:5005/api/users/current");
 
       setClubs(res.data);
@@ -90,10 +95,13 @@ const OverviewFieldComponent = () => {
 
   useEffect(() => {
     setLoad(true);
+    if(localStorage.getItem("access_token")){
+      setisloggedIn(true);
+    }
     callData();
     UserData();
     setLoad(false);
-  }, []);
+  }, [isloggedIn]);
 
 
   // const handleOnSubmit = async (e) => {
@@ -125,26 +133,38 @@ const OverviewFieldComponent = () => {
   // setClubID(user.id);
   // setMobile_number(user.Mobile_number);
   let bookingType;
-  const bookNow = (ClubID, bookingType, clubName, userId, username, Mobile_number, price) => {
-    // Axios.post("/book-now", {
-    Axios.post("http://34.125.27.77:4000/book-now/", {
-      ClubID: ClubID, // Include the ClubID in the POST data
-      bookingType,
-      clubname: clubName, // Include the clubName in the POST data
-      UserID: userId, // Include the userId in the POST data
-      username: username,
-      Mobile_number: Mobile_number,
-      price: price,
-      time: new Date().toISOString(),
-    })
-      .then((response) => {
-        // Handle the success response
-        toast("Booking Successfull!");
-      })
-      .catch((error) => {
-        // Handle the error
-        toast("Booking Failed!");
-      });
+  const bookNow = async(ClubID, bookingType, clubName, userId, username, Mobile_number, price) => {
+  
+    if(!token){
+      token = localStorage.getItem("access_token");
+    }
+    try {
+
+      const response = await axios.post(
+        `http://34.100.246.170/api/bookings/book-now`,
+        {
+          ClubID: ClubID, // Include the ClubID in the POST data
+          bookingType,
+          clubname: clubName, // Include the clubName in the POST data
+          UserID: userId, // Include the userId in the POST data
+          username: username,
+          Mobile_number: Mobile_number,
+          price: price,
+          time: new Date().toISOString(),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response.data);
+      toast("Booking Successful");
+    } catch (error) {
+      toast("Booking Failed");
+      console.error('Error:', error);
+    }
+
   };
 
   // const navigateBook = () => {
@@ -201,10 +221,16 @@ const OverviewFieldComponent = () => {
     {imgSrc: CathTheMatachImg, title: "Catch the Match", places: "30"}
   ]
 
+  function logoutHandler(){
+    navigate("/login-page");
+  }
+
   return <div className={css.outerDiv}>
     <div className={css.innerDiv}>
       <div className={css.leftBox}>
-        <div className={css.ttl}>About this place
+       {isloggedIn ? (
+          <>
+           <div className={css.ttl}>About this place
         {load ? (
         <h1>Loading...</h1>
       ) : (
@@ -230,6 +256,12 @@ const OverviewFieldComponent = () => {
         </ul>
       )}
         </div>
+        </>
+        ) : (<>
+        <div className="text-center" style={{padding: "5%", paddingLeft: "0"}}>Please Login before making any bookings!</div>
+
+        <Button variant="contained" onClick={logoutHandler}>Click here to login!</Button>
+        </>)}
         <div className={css.menuSec}>
           <div className={css.subTtl}>Menu</div>
           <Link to={`/${city}/${hotel}/menu`} className={css.menuLink}>See all menus <img src={rightArrrow} className={css.rightArrowIcon} alt="right arrow" /></Link>

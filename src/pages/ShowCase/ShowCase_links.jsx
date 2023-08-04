@@ -22,6 +22,10 @@ import fishImg from '/images/Food/toyroom3.jpg';
 import icecreamImg from '/images/Food/toyroom4.jpg';
 import kfcSCImg from '/images/Food/Dragonfly.jpg';
 import pizzaSCImg from '/images/Food/pizza.png';
+import knottyyard from '/images/Food/knottyyard.png';
+import bombaymartini from '/images/Food/bombaymartini.png';
+import lotdpowai from '/images/Food/lotdpowai.png';
+import episodeone from '/images/Food/episodeone.png';
 
 import { orderOnlinePage, diningOutPage, nightLifePage } from '../../helpers/constants'
 
@@ -55,7 +59,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Bombay Martini",
             rating: '5',
-            imgSrc: biryaniSCImg2,
+            imgSrc: bombaymartini,
             ClubID:""
         },
         {
@@ -67,7 +71,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Knotty Yard",
             rating: '4.6',
-            imgSrc: chapathiImg,
+            imgSrc: knottyyard,
             ClubID:"dragonfly"
         },
         {
@@ -79,7 +83,7 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Lord Of The Drinks",
             rating: '4.9',
-            imgSrc: fishImg,
+            imgSrc: lotdpowai,
             ClubID:"thegameplacio"
         },
         {
@@ -91,21 +95,10 @@ let ShowCase = () => {
             proExtra: "40",
             name: "Episode One",
             rating: '4.6',
-            imgSrc: icecreamImg,
+            imgSrc: episodeone,
             ClubID:"anotherclub"
         },
-        {
-            promoted: false,
-            time: "25",
-            offB: true,
-            proExtraB: false,
-            off: "30",
-            proExtra: "40",
-            name: "Your fav Club",
-            rating: '2.8',
-            imgSrc: kfcSCImg,
-            ClubID:"anotherclub2"
-        },
+       
         
         
         

@@ -21,19 +21,23 @@
 
 .bannerTxt {
     position: absolute;
-    color: var(--color-white);
+   
 }
 
 .title {
     font-size: var(--font-img-title);
     font-weight: bold;
     text-align: center;
+    color:aliceblue;
 }
-
 .tag {
     font-size: 2rem;
     text-align: center;
+    color: purple;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adjust the shadow values as needed */
 }
+
 
 .bld {
     font-weight: bold;
@@ -48,10 +52,12 @@
         font-size: 1.9rem;
         font-weight: bold;
         text-align: center;
+
     }
 
     .tag {
         font-size: 1.3rem;
         text-align: center;
+        color: purple;
     }
 }

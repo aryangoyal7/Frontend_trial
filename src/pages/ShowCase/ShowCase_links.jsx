@@ -53,10 +53,10 @@ let ShowCase = () => {
             proExtraB: false,
             off: "30",
             proExtra: "40",
-            name: "Tryst",
-            rating: '2.6',
+            name: "Bombay Martini",
+            rating: '5',
             imgSrc: biryaniSCImg2,
-            ClubID:"6491fc3d906547bc3cb8fd39"
+            ClubID:""
         },
         {
             promoted: true,
@@ -65,7 +65,7 @@ let ShowCase = () => {
             proExtraB: true,
             off: "30",
             proExtra: "40",
-            name: "DragonFly",
+            name: "Knotty Yard",
             rating: '4.6',
             imgSrc: chapathiImg,
             ClubID:"dragonfly"
@@ -77,7 +77,7 @@ let ShowCase = () => {
             proExtraB: false,
             off: "30",
             proExtra: "40",
-            name: "The Game Placio",
+            name: "Lord Of The Drinks",
             rating: '4.9',
             imgSrc: fishImg,
             ClubID:"thegameplacio"
@@ -89,7 +89,7 @@ let ShowCase = () => {
             proExtraB: true,
             off: "30",
             proExtra: "40",
-            name: "Another Club",
+            name: "Episode One",
             rating: '4.6',
             imgSrc: icecreamImg,
             ClubID:"anotherclub"
@@ -101,7 +101,7 @@ let ShowCase = () => {
             proExtraB: false,
             off: "30",
             proExtra: "40",
-            name: "Another Club 2",
+            name: "Your fav Club",
             rating: '2.8',
             imgSrc: kfcSCImg,
             ClubID:"anotherclub2"

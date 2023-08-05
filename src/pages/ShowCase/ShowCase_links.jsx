@@ -60,7 +60,7 @@ let ShowCase = () => {
             name: "Bombay Martini",
             rating: '5',
             imgSrc: bombaymartini,
-            ClubID:""
+            ClubID:"64ce66822a32cc2281104593"
         },
         {
             promoted: true,
@@ -72,7 +72,7 @@ let ShowCase = () => {
             name: "Knotty Yard",
             rating: '4.6',
             imgSrc: knottyyard,
-            ClubID:"dragonfly"
+            ClubID:"64ce664e2a32cc2281104590"
         },
         {
             promoted: false,
@@ -84,7 +84,7 @@ let ShowCase = () => {
             name: "Lord Of The Drinks",
             rating: '4.9',
             imgSrc: lotdpowai,
-            ClubID:"thegameplacio"
+            ClubID:"64ce66b52a32cc2281104596"
         },
         {
             promoted: true,
@@ -96,7 +96,7 @@ let ShowCase = () => {
             name: "Episode One",
             rating: '4.6',
             imgSrc: episodeone,
-            ClubID:"anotherclub"
+            ClubID:"64ce67012a32cc2281104599"
         },
        
         

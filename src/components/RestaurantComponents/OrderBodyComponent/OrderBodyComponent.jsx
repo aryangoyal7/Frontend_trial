@@ -50,7 +50,7 @@ const OrderBodyComponent = () => {
             <NavLink to={`/${city}/${hotel}/`} className={isActiveClass}>
                 Upcoming event
             </NavLink>
-            <NavLink to={`/${city}/${hotel}/order`} className={isActiveClass}>
+            <NavLink to={`/${city}/${hotel}/`} className={isActiveClass}>
                 Bookings for Now
             </NavLink>
         </div>

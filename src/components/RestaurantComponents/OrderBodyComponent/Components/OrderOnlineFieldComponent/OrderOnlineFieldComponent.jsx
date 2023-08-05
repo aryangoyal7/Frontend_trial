@@ -105,37 +105,7 @@ const OrderOnlineFieldComponent = () => {
                </Form>
           </Formik>
         </div>
-        <div className={css.itemsBox} id='itemsBox'>
-          {Object.entries(foodItemsData)?.map((val, index) => {
-            return <div key={index} >
-              <div className={css.sec} >
-                <div className={css.secTtl}>{val[0]}</div>
-                {foodType.egg ? 
-                  val[1]?.map((item, id) => {
-                    if(item?.foodType === "egg"){
-                      return <FoodItemProduct   key={id} data={item} dataset="secTtl" id={val[0]}  />
-                    }
-                  })
-                : 
-                foodType.veg ?
-                  val[1]?.map((item, id) => {
-                    if(item?.foodType === "veg"){
-                      return <FoodItemProduct   key={id} data={item} dataset="secTtl"  id={val[0]} />
-                    }
-                  })
-                : 
-                  val[1]?.map((item, id) => {
-                    return <FoodItemProduct  key={id} data={item} dataset="secTtl" id={val[0]}  />
-                  })
-                }
-                {/* {val[1]?.map((item, id) => {
-                  return <FoodItemProduct key={id} {...item}  />
-                })} */}
-              </div>
-              {breakDivFunc(index)}
-            </div>
-          })}
-        </div>
+        
       </div>
     </div>
    

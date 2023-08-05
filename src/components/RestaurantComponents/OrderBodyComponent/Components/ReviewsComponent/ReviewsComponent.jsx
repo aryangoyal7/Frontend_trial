@@ -61,20 +61,8 @@ const options2 = [
 
   return <div className={css.outerDiv}>
     <div className={css.innerDiv}>
-      <div className={css.left}>
-        <div className={css.dropDowns}>
-          <DropdownUtil options={options1} icon2={dropdownIcon} filFunc={(val) => console.log(val)} />
-          <DropdownUtil options={options2} icon1={menu} icon2={dropdownIcon}  filFunc={(val) => console.log(val)} />
-        </div>
-        <div className={css.re}>
-          {data?.map((item, id) => {
-            return <RestUserReviewedCard ket={id} data={item} />
-          })}
-        </div>
-      </div>
-      <div className={css.right}>
-        <RateYourExperienceCard />
-      </div>
+     
+      
     </div>
   </div>
 }

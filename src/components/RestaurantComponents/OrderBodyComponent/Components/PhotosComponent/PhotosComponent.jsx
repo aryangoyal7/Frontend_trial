@@ -71,19 +71,6 @@ const PhotosComponent = () => {
   const [state, setState] = useState(allPhotosData)
 
   return <div className={css.outerDiv}>
-    <div className={css.ttl}>Krupa Mess & Tiffins Photos</div>
-    <div className={css.btns}>
-      <RedButton txt="All" count={23} onClick={() => setState(allPhotosData)} />
-      <WhiteButton txt="Food" count={17} onClick={() => setState(foodPhotosData)} />
-      <WhiteButton txt="Ambience" count={6} onClick={() => setState(ambeiencePhotosData)} />
-    </div>
-    <div className={css.photoCards}>
-      {state?.map((item, id) => {
-        return <div key={id} className={css.imgCard}>
-          <GalleryImgCard imgSrc={item.imgSrc} />
-        </div>
-      })}
-    </div>
   </div>
 }
 

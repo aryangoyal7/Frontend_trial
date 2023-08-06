@@ -38,6 +38,7 @@ let ShowCase = () => {
     const navigate=useNavigate();
    
     const items = [
+        /*
         {
             promoted: true,
             time: "25",
@@ -50,6 +51,7 @@ let ShowCase = () => {
             imgSrc: biryaniSCImg,
             ClubID:"646f4207e907d42c3e10bfe9"
         },
+        */
         {
             promoted: false,
             time: "25",

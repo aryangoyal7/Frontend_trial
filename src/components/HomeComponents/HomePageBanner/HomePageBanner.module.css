@@ -33,7 +33,7 @@
 .tag {
     font-size: 2rem;
     text-align: center;
-    color: purple;
+    color: aliceblue;
     font-weight: 600;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adjust the shadow values as needed */
 }

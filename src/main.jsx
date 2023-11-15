@@ -31,10 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/test-pricing" element={<ClubPricing />} />
       <Route path="/test" element={<SignInSide />} />
       <Route path="/customer-support" element={<CustomerSupportPage />} />
-
-
       
-
       <Route path="/add-restaurant" element={<AddRestaurant />} />
       <Route path="/login-page" element={<LoginPage />} />
       <Route path="/signup-page" element={<SignupPage />} />
